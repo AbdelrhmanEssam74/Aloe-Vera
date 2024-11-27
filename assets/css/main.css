@@ -118,7 +118,7 @@ header nav {
 }
 .category-section-img{
     position: absolute;
-    opacity: 1;
+    opacity: 0.15;
 }
 .category-section .section-header{
     padding-top: 30px;
