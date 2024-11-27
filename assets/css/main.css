@@ -22,7 +22,7 @@ body {
     line-height: 1.6;
 }
 
-nav {
+header nav {
     background-color: var(--background-color);
 }
 
@@ -114,10 +114,11 @@ nav {
     height: 500px;
     background-color: var(--background-color);
     position: relative;
+    overflow: hidden
 }
 .category-section-img{
     position: absolute;
-    opacity: 0.15;
+    opacity: 1;
 }
 .category-section .section-header{
     padding-top: 30px;
