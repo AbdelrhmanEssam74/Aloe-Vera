@@ -218,6 +218,9 @@ header nav {
         grid-column-gap: 20px;
         grid-row-gap: 20px;
     }
+    .category-section-img.img2 {
+        top: -12.5%;
+    }
 }
 
 #btn-back-to-top {
