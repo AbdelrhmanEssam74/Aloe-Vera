@@ -303,3 +303,34 @@ header nav {
 .cta-section h2 {
     color: var(--main-color)
 }
+.login-section{
+    background-color: var(--background-color);
+    position: relative;
+}
+.login-section-img{
+    position: absolute;
+    right: 0;
+    opacity: 0.15;
+}
+.login-section .container {
+    padding: 75px 25px;
+}
+.card-login-img{
+    position: absolute;
+    width: 100px;
+    left: 0;
+    top: 0;
+    opacity: 0.10;
+}
+.login-header{
+    color: var(--main-color);
+}
+.login-section .container input[type="password"],
+.login-section .container input[type="email"] {
+    height: 50px;
+}
+@media (max-width: 500px) {
+     .login-img{
+         display: none;
+     }
+}
