@@ -4,6 +4,7 @@
     --snow-color: #fffafa;
     --ghost-color: #f8f8ff;
     --off-white-color: #fbfbfb;
+    --dark-color: #12260d;
 }
 
 * {
@@ -18,8 +19,6 @@ html {
 
 body {
     font-family: "Work Sans", sans-serif;
-    min-height: 100vh;
-    line-height: 1.6;
 }
 
 header nav {
@@ -105,10 +104,8 @@ header nav {
 }
 
 .category-section {
-    height: 500px;
     background-color: var(--background-color);
     position: relative;
-    overflow: hidden
 }
 
 .category-section-img {
@@ -153,15 +150,49 @@ header nav {
 
 }
 
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 6px;
+    margin-top: 50px;
+}
+
+.cards-container .card img {
+    max-height: 250px;
+    min-height: 250px;
+}
+
+.cards-container .card h5 {
+    color: var(--dark-color);
+}
+
 /* Media query for smaller screens */
+@media (max-width: 991px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
+}
+
 @media (max-width: 815px) {
     .section-header h1:before {
         bottom: -50%;
     }
+
     .section-header h1:after {
         bottom: -30%;
     }
+
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
 }
+
 @media (max-width: 745px) {
     .main-section {
         background-position: center;
@@ -170,5 +201,56 @@ header nav {
     .section-header h1:before {
         bottom: -64%;
     }
+
+    .category-section-img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .cards-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+    }
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: -50px;
+    right: 20px;
+    transition: 0.5s ease-in-out;
+    z-index: 999;
+    background-color: var(--dark-color);
+    color: var(--background-color);
+}
+
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-icon:before {
+    content: attr(data-count);
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: white;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: var(--dark-color);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+}
+
+.cart-icon svg {
+    font-size: 25px;
+    cursor: pointer;
+    color: inherit; /* Ensure the color aligns with the parent text-success class */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
 }
 

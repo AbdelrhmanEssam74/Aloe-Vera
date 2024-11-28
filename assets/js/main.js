@@ -1,6 +1,25 @@
+//Get the button
+let mybutton = document.getElementById("btn-back-to-top");
 
-    var tl = new TimelineMax();
-    tl
-    .staggerFromTo(".lePushReleaseFromLeft span",.5,{autoAlpha:0,x:-100,ease:Power3.easeOut},{autoAlpha:1,x:100,ease:Power2.easeOut},.2)
-    .staggerTo(".lePushReleaseFromLeft span",.5,{x:0,ease:Power1.easeOut},.2,"-=2.2");
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+    scrollFunction();
+};
 
+function scrollFunction() {
+    if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+    ) {
+        mybutton.style.bottom = "20px";
+    } else {
+        mybutton.style.bottom = "-50px";
+    }
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}

@@ -29,6 +29,14 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
+<!-- Back to top button -->
+<button
+        type="button"
+        class="btn btn-floating btn-lg"
+        id="btn-back-to-top"
+>
+    <i class="fas fa-arrow-up"></i>
+</button>
 <!--Start Header-->
 <header class="border-bottom lh-1 py-3">
     <nav class="navbar navbar-expand-lg fixed-top ">
@@ -60,11 +68,29 @@
                     <button class="btn btn-outline-success"> Register</button>
                 </span>
             </div>
+            <span class="cart-icon badge text-success" data-count="5"
+                  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+            >
+                <i class="fa-solid fa-cart-arrow-down"></i>
+            </span>
+
         </div>
     </nav>
 </header>
 <!--End Header-->
-<!--Start Hero Section-->
+<!--Start offCanvas components-->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel" class="text-center w-100">Your Cart</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        ...
+    </div>
+</div>
+<!--End offCanvas components-->
+<!--StartHero Section-->
 <div class="container-fluid  main-section " style="background-image: url('assets/images/background.jpg');">
     <div class="p-5 mb-4 lc-block col-xxl-7 col-lg-8 col-12 container">
         <div class="lc-block ">
@@ -92,11 +118,69 @@
 </div>
 <!--End Hero Section-->
 <!--Start Categories Section-->
-<section class="py-6 category-section">
+<section class="py-6 category-section mb-4">
     <img src="assets/images/item1.png" class="category-section-img">
     <div class="container">
         <div class="section-header">
             <h1 class="display-5  fw-medium">Categories</h1>
+        </div>
+        <div class="cards-container">
+            <div class="card category-item">
+                <a href="#">
+                    <img src="assets/images/category1.jpg" class="card-img-top rounded img-4by3-md">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Aloe Vera Farmers</h5>
+                    <p class="card-text">lorem</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Explore
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card category-item">
+                <a href="#">
+                    <img src="assets/images/category2.jpg" class="card-img-top rounded img-4by3-md">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Buy Aloe Vera Leaves</h5>
+                    <p class="card-text">lorem</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Explore
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card category-item">
+                <a href="#">
+                    <img src="assets/images/category3.jpg" class="card-img-top rounded img-4by3-md">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Buy Aloe Vera Extract</h5>
+                    <p class="card-text">lorem</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Explore
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card category-item">
+                <a href="#">
+                    <img src="assets/images/category4.jpg" class="card-img-top rounded img-4by3-md">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Aloe Vera Benefits</h5>
+                    <p class="card-text">lorem</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Explore
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
