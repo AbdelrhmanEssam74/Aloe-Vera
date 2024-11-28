@@ -9,8 +9,8 @@
     <title>Aloe Vera</title>
     <!--Bootstrap-->
     <!-- <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css" /> -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <!--    google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
@@ -28,7 +28,7 @@
           integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
-<body>
+<body id="body">
 <!-- Back to top button -->
 <button
         type="button"
@@ -52,7 +52,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
@@ -64,8 +64,8 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <button class="btn btn-success"> Login</button>
-                    <button class="btn btn-outline-success"> Register</button>
+                    <a href="login.html" class="btn btn-success text-light text-decoration-none">Login</a>
+                    <a href="register.html" id="register-btn" class="btn btn-outline-success"> Register</a>
                 </span>
             </div>
             <span class="cart-icon badge text-success" data-count="5"
@@ -79,6 +79,7 @@
     </nav>
 </header>
 <!--End Header-->
+
 <!--Start offCanvas components-->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
@@ -90,6 +91,7 @@
     </div>
 </div>
 <!--End offCanvas components-->
+
 <!--StartHero Section-->
 <div class="container-fluid  main-section " style="background-image: url('assets/images/background.jpg');">
     <div class="p-5 mb-4 lc-block col-xxl-7 col-lg-8 col-12 container">
@@ -117,6 +119,7 @@
     </div>
 </div>
 <!--End Hero Section-->
+
 <!--Start CTA Section-->
 <section class="cta-section">
     <div class="container py-lg-8">
@@ -140,12 +143,13 @@
                                 <div class="col-md-1 col-lg-2 col-xxl-1 col-2">
                                     <!--svg-->
                                     <div class="icon-shape text-center icon-lg bg-danger-subtle rounded-4">
-                                       <img src="assets/images/skin-care.png" width="40px" alt="">
+                                        <img src="assets/images/skin-care.png" width="40px" alt="">
                                     </div>
                                 </div>
                                 <!--text-->
                                 <div class="col-md-6 col-lg-10 col-xxl-6 col-10">
-                                    <h4 class="mb-0">Aloe vera soothes, hydrates, and rejuvenates skin, helping with sunburns, acne, and irritation.</h4>
+                                    <h4 class="mb-0">Aloe vera soothes, hydrates, and rejuvenates skin, helping with
+                                        sunburns, acne, and irritation.</h4>
                                 </div>
                             </div>
                             <div class="row gap-xxl-3">
@@ -157,7 +161,8 @@
                                 </div>
                                 <!--text-->
                                 <div class="col-md-6 col-lg-10 col-xxl-6 col-10">
-                                    <h4 class="mb-0">It nourishes the scalp, reduces dandruff, and promotes shiny, healthy hair.</h4>
+                                    <h4 class="mb-0">It nourishes the scalp, reduces dandruff, and promotes shiny,
+                                        healthy hair.</h4>
                                 </div>
                             </div>
                             <div class="row gap-xxl-3">
@@ -169,7 +174,8 @@
                                 </div>
                                 <!--text-->
                                 <div class="col-md-6 col-lg-10 col-xxl-6 col-10">
-                                    <h4 class="mb-0"> Aloe vera aids digestion, boosts immunity, and detoxifies the body.</h4>
+                                    <h4 class="mb-0"> Aloe vera aids digestion, boosts immunity, and detoxifies the
+                                        body.</h4>
                                 </div>
                             </div>
                         </div>
@@ -180,6 +186,7 @@
     </div>
 </section>
 <!--End CTA Section-->
+
 <!--Start Categories Section-->
 <section class="py-6 category-section mb-4">
     <img src="assets/images/item1.png" class="category-section-img">
@@ -249,8 +256,9 @@
     </div>
 </section>
 <!--End Categories Section-->
+
 <!--Start Footer -->
-<footer class="py-lg-8 py-5">
+<footer class="py-lg-8 py-5 bg-body-tertiary">
     <div class="container">
         <div class="row  justify-content-center text-center  ">
             <div class="col-12 col-md-12 col-xl-8 px-0 ">
@@ -315,6 +323,7 @@
     </div>
 </footer>
 <!--End Footer -->
+
 <!-- Bootstrap JS -->
 <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
