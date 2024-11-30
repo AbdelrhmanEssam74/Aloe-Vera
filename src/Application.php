@@ -35,7 +35,7 @@ class Application
         return match (env("DB_DRIVER")) {
             'mysql' => new MYSQLManager(),
             default => new MYSQLManager
-    };
+        };
     }
 
     protected function loadConfig(): array
@@ -46,7 +46,7 @@ class Application
                 continue;
             }
             $fileName = explode(".", $file)[0];
-            $config[$fileName] = require Application . phpconfig_path() . $file;
+            $config[$fileName] = require config_path() . $file;
         }
         return $config;
     }

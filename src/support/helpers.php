@@ -35,9 +35,11 @@ endif;
 if (!function_exists("base_path")):
     function base_path(): string
     {
-        return dirname(__DIR__) . '/Aloe-Vera/';
+        // Navigate two levels up from the src/support directory
+        return realpath(__DIR__ . '/../../') . '/';
     }
 endif;
+
 
 /**
  * @description

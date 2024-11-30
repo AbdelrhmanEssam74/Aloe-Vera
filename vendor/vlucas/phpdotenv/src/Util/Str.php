@@ -33,27 +33,36 @@ final class Str
      *
      * @return \GrahamCampbell\ResultType\Result<string,string>
      */
-    public static function utf8(string $input, ?string $encoding = null)
+    public static function utf8(string $input, string $encoding = null)
     {
         if ($encoding !== null && !\in_array($encoding, \mb_list_encodings(), true)) {
-            /** @var \GrahamCampbell\ResultType\Result<string,string> */
             return Error::create(
                 \sprintf('Illegal character encoding [%s] specified.', $encoding)
             );
         }
-        $converted = $encoding === null ?
-            @\mb_convert_encoding($input, 'UTF-8') :
-            @\mb_convert_encoding($input, 'UTF-8', $encoding);
-        /**
-         * this is for support UTF-8 with BOM encoding
-         * @see https://en.wikipedia.org/wiki/Byte_order_mark
-         * @see https://github.com/vlucas/phpdotenv/issues/500
-         */
-        if (\substr($converted, 0, 3) == "\xEF\xBB\xBF") {
-            $converted = \substr($converted, 3);
+
+        return Success::create(
+            $encoding === null ? @\mb_convert_encoding($input, 'UTF-8') : @\mb_convert_encoding($input, 'UTF-8', $encoding)
+        );
+    }
+
+    /**
+     * Split the given string into an array of characters.
+     *
+     * @param string $input
+     *
+     * @return \GrahamCampbell\ResultType\Result<string[],string>
+     */
+    public static function split(string $input)
+    {
+        $result = mb_str_split($input, 1, 'UTF-8');
+
+        if ($result === false) {
+            return Error::create('Multibyte split failed.');
         }
-        /** @var \GrahamCampbell\ResultType\Result<string,string> */
-        return Success::create($converted);
+
+        /** @var \GrahamCampbell\ResultType\Result<string[],string> */
+        return Success::create($result);
     }
 
     /**
@@ -79,7 +88,7 @@ final class Str
      *
      * @return string
      */
-    public static function substr(string $input, int $start, ?int $length = null)
+    public static function substr(string $input, int $start, int $length = null)
     {
         return \mb_substr($input, $start, $length, 'UTF-8');
     }

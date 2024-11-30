@@ -8,6 +8,8 @@ final class Lexer
 {
     /**
      * The regex for each type of token.
+     *
+     * @var string
      */
     private const PATTERNS = [
         '[\r\n]{1,1000}', '[^\S\r\n]{1,1000}', '\\\\', '\'', '"', '\\#', '\\$', '([^(\s\\\\\'"\\#\\$)]|\\(|\\)){1,1000}',
@@ -43,11 +45,13 @@ final class Lexer
             $regex = '(('.\implode(')|(', self::PATTERNS).'))A';
         }
 
+        $tokens = [];
+
         $offset = 0;
 
         while (isset($content[$offset])) {
             if (!\preg_match($regex, $content, $matches, 0, $offset)) {
-                throw new \Error(\sprintf('Lexer encountered unexpected character [%s].', $content[$offset]));
+                throw new \Error(sprintf('Lexer encountered unexpected character [%s].', $content[$offset]));
             }
 
             $offset += \strlen($matches[0]);

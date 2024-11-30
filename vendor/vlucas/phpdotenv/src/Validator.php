@@ -161,13 +161,13 @@ class Validator
      *
      * @return \Dotenv\Validator
      */
-    public function assert(callable $callback, string $message)
+    private function assert(callable $callback, string $message)
     {
         $failing = [];
 
         foreach ($this->variables as $variable) {
             if ($callback($this->repository->get($variable)) === false) {
-                $failing[] = \sprintf('%s %s', $variable, $message);
+                $failing[] = \sprintf('%s %s', $variable, $message ?? 'failed callback assertion');
             }
         }
 
@@ -193,7 +193,7 @@ class Validator
      *
      * @return \Dotenv\Validator
      */
-    public function assertNullable(callable $callback, string $message)
+    private function assertNullable(callable $callback, string $message)
     {
         return $this->assert(
             static function (?string $value) use ($callback) {
