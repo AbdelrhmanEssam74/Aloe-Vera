@@ -303,30 +303,53 @@ header nav {
 .cta-section h2 {
     color: var(--main-color)
 }
-.login-section{
+
+.login-section {
     background-color: var(--background-color);
     position: relative;
 }
-.login-section-img{
+
+.login-section-img {
     position: absolute;
     right: 0;
     opacity: 0.15;
 }
+
 .login-section .container {
     padding: 75px 25px;
 }
-.card-login-img{
+
+.card-login-img {
     position: absolute;
     width: 100px;
     left: 0;
     top: 0;
     opacity: 0.10;
 }
-.login-header{
+
+.login-header {
     color: var(--main-color);
 }
+
 @media (max-width: 500px) {
-     .login-img{
-         display: none;
-     }
+    .login-img {
+        display: none;
+    }
+}
+
+.about-section {
+    margin-top: 50px;
+}
+
+.about-section .about-heading1 {
+    color: var(--main-color);
+}
+
+.about-section .about-text1 {
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 1.7;
+}
+.team-member{
+margin-top: 50px;
 }

@@ -4,7 +4,13 @@ body{
 .category-hero{
     margin-top: 50px;
 }
-
+.category-hero .category-heading{
+    color: var(--main-color);
+}
 .farmers-from{
     margin-top: 50px;
+}
+#map {
+    height: 400px;
+    width: 50%;
 }

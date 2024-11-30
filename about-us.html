@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aloe-Vera About Us</title>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <style>
+        .about-img-shape {
+            margin: 30px;
+            z-index: 1
+        }
+
+        .about-img-shape::before {
+            position: absolute;
+            left: -31px;
+            top: -30px;
+            width: 80%;
+            height: 90%;
+            z-index: -1;
+            content: '';
+            background-color: var(--bs-dark);
+            transition: .5s;
+
+        }
+
+        .about-img-shape:after {
+            position: absolute;
+            right: -31px;
+            bottom: -30px;
+            width: 80%;
+            height: 90%;
+            z-index: -1;
+            content: '';
+            background-color: var(--bs-dark);
+            transition: .5s;
+        }
+    </style>
+</head>
+<body id="body">
+
+
+<!--Start Header-->
+<header class="border-bottom lh-1 py-3">
+    <nav class="navbar navbar-expand-lg fixed-top ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                   <span class="avatar avatar-md ">
+                    <img src="assets/images/logo.jpg" alt="" width="50" class="rounded-circle">
+                </span>
+                <span class="fw-bold">Aloe Vera inc.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <a href="login.html" class="btn btn-success text-light text-decoration-none">Login</a>
+                    <a href="register.html" id="register-btn" class="btn btn-outline-success"> Register</a>
+                </span>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--End Header-->
+
+
+<div class="container about-section">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="lc-block">
+                <h2 editable="inline" class="display-2 mb-0"><b>About us</b></h2>
+                <p editable="inline"> From the Faculty of Science at Beni-Suef University.</p>
+            </div><!-- /lc-block -->
+        </div>
+    </div>
+
+
+    <div class="container py-5">
+        <div class="row m-4">
+            <div class="col-lg-5 align-self-center">
+                <div class="lc-block about-img-shape position-relative"><img class="img-fluid"
+                                                                             src="assets/images/team.jpg"
+                                                                             alt="Photo by Dane Deaner">
+                </div>
+            </div>
+            <div class="col-lg-6 offset-lg-1 my-2 align-self-center">
+                <div class="lc-block">
+                    <div editable="rich">
+                        <h2 class="fs-2 mb-4 fw-bold about-heading1"> We Are The AloeVera Team</h2>
+                        <p class="about-text1">
+                            We are qualified for the Bio-iChallenge competition 2024, specifically under the fifth
+                            challenge organized by Joviality Company. Our project is funded by the Egyptian Innovators
+                            Support Fund.
+                        </p>
+                    </div>
+                </div>
+                <!-- /lc-block -->
+            </div>
+        </div>
+        <div class="container team-member">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="lc-block mb-4">
+                        <h2 editable="inline" class="display-2 mb-0"><b>Team Members</b></h2>
+                        <p editable="inline">Our team is a diverse group of talented individuals committed to
+                            collaboration and innovation.<br> Together, we strive to achieve excellence in every
+                            project.</p>
+                    </div><!-- /lc-block -->
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col-md-6 text-center p-4 ">
+                    <div class="lc-block"><img alt="" class="rounded-circle mb-3"
+                                               src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg"
+                                               style="height:10vh" loading="lazy">
+                    </div>
+                    <div class="lc-block mt-2 py-2 ">
+                        <h5 editable="inline"><strong>Academic Supervisor: <br> Dr. Wael Ahmed Fathy</strong></h5>
+                    </div><!-- /lc-block -->
+                    <!-- /lc-block -->
+                </div>
+                <div class="col-md-6 text-center p-4 ">
+                    <div class="lc-block"><img alt="" class="rounded-circle mb-3"
+                                               src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg"
+                                               style="height:10vh" loading="lazy">
+                    </div>
+                    <div class="lc-block mt-2 py-2">
+                        <h5 editable="inline"><strong>Industrial Supervisor:<br>  Dr. Aya Saeed</strong></h5>
+                    </div><!-- /lc-block -->
+                    <!-- /lc-block -->
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col-md-3 text-center py-4">
+                    <div class="lc-block"><img alt="" class="rounded-circle mb-3"
+                                               src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg"
+                                               style="height:10vh" loading="lazy">
+                        <h5 editable="inline"><strong>Nourhan Diaa Saad</strong></h5>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center py-4">
+                    <div class="lc-block"><img alt="" class="rounded-circle mb-3"
+                                               src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg"
+                                               style="height:10vh" loading="lazy">
+                        <h5 editable="inline"><strong>Naheyl Salem Abozaid</strong></h5>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center py-4">
+                    <div class="lc-block"><img alt="" class="rounded-circle mb-3"
+                                               src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg"
+                                               style="height:10vh" loading="lazy">
+                        <h5 editable="inline"><strong>Manar Abo-elmaged Yassin</strong></h5>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center py-4">
+                    <div class="lc-block"><img alt="" class="rounded-circle mb-3"
+                                               src="https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg"
+                                               style="height:10vh" loading="lazy">
+                        <h5 editable="inline"><strong>Eman Ashraf Mohamed</strong></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
