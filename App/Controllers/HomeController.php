@@ -10,4 +10,12 @@ class HomeController
     {
         return View::makeView("index");
     }
+    public function aboutUs(): null
+    {
+        return View::makeView("main.about-us");
+    }
+    public function contactUs(): null
+    {
+        return View::makeView("main.contact-us");
+    }
 }

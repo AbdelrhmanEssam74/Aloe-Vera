@@ -12,4 +12,5 @@ Route::post('/store', [SignupController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
-Route::get('/user/profile', [UserController::class, 'profile']);
+Route::get('/aboutUs', [HomeController::class, 'aboutUs']);
+Route::get('/contactUs', [HomeController::class, 'contactUs']);

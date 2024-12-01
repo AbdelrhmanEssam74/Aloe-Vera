@@ -1,14 +1,14 @@
-<!-- footer -->
-<footer class="py-lg-8 py-5">
+<!--Start Footer -->
+<footer class="py-lg-8 py-5 bg-body-tertiary">
     <div class="container">
         <div class="row  justify-content-center text-center  ">
             <div class="col-12 col-md-12 col-xl-8 px-0 ">
                 <nav class="nav nav-footer justify-content-center">
-                    <a class="nav-link" href="#">About </a>
+                    <a class="nav-link" href="/aboutUs">About </a>
                     <a class="nav-link" href="#">Blog </a>
                     <a class="nav-link" href="#">Send feedback</a>
                     <a class="nav-link" href="#">Terms & Conditions</a>
-                    <a class="nav-link" href="#">Get Support</a>
+                    <a class="nav-link" href="/contactUs">Get Support</a>
                 </nav>
             </div>
             <!-- Desc -->
@@ -52,13 +52,15 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-12 col-12" style="color: #94a1b2">
+            <div class="col-lg-8 col-md-12 col-12">
                 <span>© <span id="copyright3">
-                </span>All Rights Reserved</span>
+                    <script>document.getElementById('copyright3').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                </span> Aloe Vera Inc. All Rights Reserved</span>
             </div>
 
             <!-- Links -->
 
         </div>
     </div>
-    </footer>
+</footer>
+<!--End Footer -->
