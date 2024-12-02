@@ -39,7 +39,6 @@ class LoginController
                 if (!$validator->errors('email'))
                     app()->session->setFlash('oldEmail', request()->get('email'));
             }
-
             return backRedirect();
         }
         if (!$validator->passes()) {

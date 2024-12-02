@@ -498,3 +498,6 @@ textarea {
 .link{
     text-decoration: none;
 }
+.errorHelp{
+    position: absolute;
+}

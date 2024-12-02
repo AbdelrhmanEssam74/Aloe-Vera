@@ -14,39 +14,75 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#!">
+                        <form action="/store" method="post">
                             <div class="row gy-3 gy-md-4 overflow-hidden">
-                                <div class="col-12">
+                                <div class="col-12 position-relative">
                                     <label for="full_name" class="form-label">Full Name <span
                                                 class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="full_name" id="full_name"
-                                           placeholder="Enter Your Full Name" required>
+                                           placeholder="Enter Your Full Name">
+                                    <div class="errorHelp">
+                                        <?php
+                                        if (!empty(app()->session->getFlash('errors')['full_name'])):
+                                            echo "<p  class=' text-danger form-text'>*" .
+                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['full_name'][0]))
+                                                . "</p>";
+                                        endif;
+                                        ?>
+                                    </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 position-relative">
                                     <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="username" id="username"
-                                           placeholder="Enter Your Username" required>
+                                           placeholder="Enter Your Username">
+                                    <div class="errorHelp">
+                                        <?php
+                                        if (!empty(app()->session->getFlash('errors')['username'])):
+                                            echo "<p  class=' text-danger form-text'>*" .
+                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['username'][0]))
+                                                . "</p>";
+                                        endif;
+                                        ?>
+                                    </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 position-relative">
                                     <label for="email" class="form-label">Email <span
                                                 class="text-danger">*</span></label>
                                     <input type="email" class="form-control" name="email" id="email"
-                                           placeholder="name@example.com" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password" value=""
-                                           required>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" name="remember_me"
-                                               id="remember_me">
-                                        <label class="form-check-label text-secondary" for="remember_me">
-                                            I agree all statements in Terms of service
-                                        </label>
+                                           placeholder="name@example.com">
+                                    <div class="errorHelp">
+                                        <?php
+                                        if (!empty(app()->session->getFlash('errors')['email'])):
+                                            echo "<p  class=' text-danger form-text'>*" .
+                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['email'][0]))
+                                                . "</p>";
+                                        endif;
+                                        ?>
                                     </div>
                                 </div>
+                                <div class="col-12 position-relative">
+                                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" name="password" id="password" value=""
+                                    >
+                                    <div class="errorHelp">
+                                        <?php
+                                        if (!empty(app()->session->getFlash('errors')['password'])):
+                                            echo "<p  class=' text-danger form-text'>*" .
+                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['password'][0]))
+                                                . "</p>";
+                                        endif;
+                                        ?>
+                                    </div>
+                                </div>
+                                <!--                                <div class="col-12">-->
+                                <!--                                    <div class="form-check">-->
+                                <!--                                        <input class="form-check-input" type="checkbox" value="" name="remember_me"-->
+                                <!--                                               id="remember_me">-->
+                                <!--                                        <label class="form-check-label text-secondary" for="remember_me">-->
+                                <!--                                            I agree all statements in Terms of service-->
+                                <!--                                        </label>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                                 <div class="col-12">
                                     <div class="d-grid">
                                         <button class="btn bsb-btn-xl btn-primary" type="submit">
@@ -60,7 +96,8 @@
                             <div class="col-12">
                                 <hr class="mt-5 mb-4 border-secondary-subtle">
                                 <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end">
-                                    <a href="login.html" class="link-secondary text-decoration-none">Already Have An Account</a>
+                                    <a href="/login" class="link-secondary text-decoration-none">Already Have An
+                                        Account</a>
                                 </div>
                             </div>
                         </div>
@@ -102,3 +139,9 @@
         </div>
     </div>
 </section>
+<?php
+echo "<pre>";
+print_r((app()->session->getFlash('errors')));
+echo "</pre>";
+
+?>

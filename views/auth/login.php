@@ -13,34 +13,33 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#!">
+                        <form action="/login" method="post">
                             <div class="row gy-3 gy-md-4 overflow-hidden">
-                                <div class="col-12">
+                                <div class="col-12 position-relative">
                                     <label for="email" class="form-label">Email <span
                                                 class="text-danger">*</span></label>
                                     <input type="email" class="form-control" name="email" id="email"
+                                           value="<?= (!empty(app()->session->getFlash('oldEmail'))) ? app()->session->getFlash('oldEmail') : '' ?>"
                                            placeholder="name@example.com" required>
-                                    <div>
+                                    <div class="errorHelp">
                                         <?php
-                                        echo (!empty(app()->session->getFlash('email'))) ? app()->session->getFlash('email') : '';
+                                        if (!empty(app()->session->getFlash('email'))):
+                                            echo "<p  class=' text-danger form-text'>*" . app()->session->getFlash('email')[0] . "</p>";
+                                        endif;
                                         ?>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 position-relative">
                                     <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control" name="password" id="password" value=""
-                                           required>
-                                    <?php
-                                    echo (!empty(app()->session->getFlash('password'))) ? app()->session->getFlash('password') : '';
-                                    ?>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" name="remember_me"
-                                               id="remember_me">
-                                        <label class="form-check-label text-secondary" for="remember_me">
-                                            Keep me logged in
-                                        </label>
+                                           required
+                                    >
+                                    <div class="errorHelp">
+                                        <?php
+                                        if (!empty(app()->session->getFlash('password'))):
+                                            echo "<p  class=' text-danger form-text'>*" . app()->session->getFlash('password')[0] . "</p>";
+                                        endif;
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -54,9 +53,10 @@
                             <div class="col-12">
                                 <hr class="mt-5 mb-4 border-secondary-subtle">
                                 <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end">
-                                    <a href="register.html" class="link-secondary text-decoration-none">Create new
+                                    <a href="/signup" class="link-secondary text-decoration-none">Create new
                                         account</a>
-                                    <a href="#!" class="link-secondary text-decoration-none">Forgot password</a>
+                                    <a href="/rest-password" class="link-secondary text-decoration-none">Forgot
+                                        password</a>
                                 </div>
                             </div>
                         </div>
@@ -98,3 +98,6 @@
         </div>
     </div>
 </section>
+
+<?php
+?>
