@@ -54,7 +54,7 @@ class Application
 
     public function run(): void
     {
-//        $this->db->init();
+        $this->db->init();
         $this->route->resolve();
     }
 
