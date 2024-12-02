@@ -74,6 +74,20 @@
                                         ?>
                                     </div>
                                 </div>
+                                <div class="col-12 position-relative">
+                                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" value=""
+                                    >
+                                    <div class="errorHelp">
+                                        <?php
+                                        if (!empty(app()->session->getFlash('errors')['password_confirmation'])):
+                                            echo "<p  class=' text-danger form-text'>*" .
+                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['password_confirmation'][0]))
+                                                . "</p>";
+                                        endif;
+                                        ?>
+                                    </div>
+                                </div>
                                 <!--                                <div class="col-12">-->
                                 <!--                                    <div class="form-check">-->
                                 <!--                                        <input class="form-check-input" type="checkbox" value="" name="remember_me"-->
