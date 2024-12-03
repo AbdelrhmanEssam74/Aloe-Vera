@@ -18,6 +18,11 @@ class UserController
             ]
         ];
         if ($date)
-            return View::makeView('profile', $date);
+            return View::makeView('main.profile', $date);
+    }
+
+    public function settings()
+    {
+        return View::makeView('main.settings');
     }
 }
