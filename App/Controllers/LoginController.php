@@ -57,7 +57,7 @@ class LoginController
             'email' => $user_data[0]->email,
             'password' => $user_data[0]->password,
         ]);
-        return RedirectToView('profile?id=' . $user_data[0]->user_id);
+        return RedirectToView('user/profile/' . $user_data[0]->user_id);
     }
 
     public function logout(): void
