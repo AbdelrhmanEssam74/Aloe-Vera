@@ -388,8 +388,8 @@ header nav {
     padding: 12px;
 }
 
-.header-active{
-    color:#000;
+.header-active {
+    color: #000;
 }
 
 .inner-container {
@@ -459,15 +459,19 @@ textarea {
         display: block;
         margin: 30px auto;
     }
+
     .header-content {
         width: auto;
     }
+
     .tile1 {
         width: 100%;
     }
+
     .tile2 {
         padding: 0px;
     }
+
     .tile2-image img {
         width: 100%;
         height: auto;
@@ -479,6 +483,7 @@ textarea {
         float: none;
         display: none;
     }
+
     #header-right-menu a {
         display: block;
         padding: 10px 0px;
@@ -495,15 +500,19 @@ textarea {
         padding: 10px;
     }
 }
-.link{
+
+.link {
     text-decoration: none;
 }
-.errorHelp{
+
+.errorHelp {
     position: absolute;
 }
-.cursor-pointer{
+
+.cursor-pointer {
     cursor: pointer;
 }
+
 /*Start Profile */
 .profile-sidebar {
     background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
@@ -574,6 +583,7 @@ textarea {
     left: -7px;
     top: 5px;
 }
+
 /*Start Setting*/
 .ui-w-80 {
     width: 80px !important;
@@ -581,8 +591,8 @@ textarea {
 }
 
 .btn-default {
-    border-color: rgba(24,28,33,0.1);
-    background: rgba(0,0,0,0);
+    border-color: rgba(24, 28, 33, 0.1);
+    background: rgba(0, 0, 0, 0);
     color: #4E5155;
 }
 
@@ -605,20 +615,20 @@ label.btn {
 }
 
 .btn-facebook {
-    border-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0, 0, 0);
     background: #3B5998;
     color: #fff;
 }
 
 .btn-instagram {
-    border-color: rgba(0,0,0,0);
+    border-color: rgba(0, 0, 0, 0);
     background: #000;
     color: #fff;
 }
 
 .card {
     background-clip: padding-box;
-    box-shadow: 0 1px 4px rgba(24,28,33,0.012);
+    box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
 }
 
 .row-bordered {
@@ -632,46 +642,94 @@ label.btn {
     height: 1px;
     opacity: 0;
 }
+
 .account-settings-links .list-group-item.active {
     font-weight: bold !important;
 }
+
 html:not(.dark-style) .account-settings-links .list-group-item.active {
     background: transparent !important;
 }
+
 .account-settings-multiselect ~ .select2-container {
     width: 100% !important;
 }
+
 .light-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
+
 .light-style .account-settings-links .list-group-item.active {
     color: #4e5155 !important;
 }
+
 .material-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
+
 .material-style .account-settings-links .list-group-item.active {
     color: #4e5155 !important;
 }
+
 .dark-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
     border-color: rgba(255, 255, 255, 0.03) !important;
 }
+
 .dark-style .account-settings-links .list-group-item.active {
     color: #fff !important;
 }
+
 .light-style .account-settings-links .list-group-item.active {
     color: #4E5155 !important;
 }
+
 .light-style .account-settings-links .list-group-item {
     padding: 0.85rem 1.5rem;
-    border-color: rgba(24,28,33,0.03) !important;
+    border-color: rgba(24, 28, 33, 0.03) !important;
 }
-.subText{
+
+.subText {
     color: #4e5155;
     font-weight: 300;
     font-size: 12px;
 }
+
 /*End Profile */
+/*Start Categories*/
+.category-hero {
+    margin-top: 50px;
+}
+
+.category-hero .category-heading {
+    color: var(--main-color);
+}
+
+.farmers-from {
+    margin-top: 50px;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input[type=radio]{
+    cursor: pointer;
+}
+textarea{
+    resize: none;
+}
+/*End Categories*/

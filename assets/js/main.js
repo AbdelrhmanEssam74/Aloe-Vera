@@ -73,3 +73,100 @@ document.querySelectorAll('.account-settings-links a').forEach(link => {
         }
     });
 });
+
+let map, marker;
+
+// Initialize the map
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 29.0706792, lng: 31.0987647 }, // Default center
+        zoom: 18,
+    });
+
+    // Add click event listener to the map
+    map.addListener("click", (event) => {
+        const lat = event.latLng.lat();
+        const lng = event.latLng.lng();
+
+        // Place or move the marker
+        if (marker) {
+            marker.setPosition(event.latLng);
+        } else {
+            marker = new google.maps.Marker({
+                position: event.latLng,
+                map: map,
+            });
+        }
+
+        // Update the latitude and longitude fields
+        $("#latitude").val(lat);
+        $("#longitude").val(lng);
+
+        // Get the address using Geocoding API
+        getAddress(lat, lng);
+    });
+
+    // Add input listener for address field
+    $("#address").on("change", function () {
+        const address = $(this).val();
+        getLocationFromAddress(address);
+    });
+}
+
+// Get address from latitude and longitude
+function getAddress(lat, lng) {
+    const geocoder = new google.maps.Geocoder();
+    const latLng = { lat: lat, lng: lng };
+
+    geocoder.geocode({ location: latLng }, (results, status) => {
+        if (status === "OK" && results[0]) {
+            $("#address").val(results[0].formatted_address);
+        } else {
+            $("#address").val("No address found");
+        }
+    });
+}
+
+// Get location (lat, lng) from address
+function getLocationFromAddress(address) {
+    const geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({ address: address }, (results, status) => {
+        if (status === "OK" && results[0]) {
+            const location = results[0].geometry.location;
+
+            // Update latitude and longitude fields
+            $("#latitude").val(location.lat());
+            $("#longitude").val(location.lng());
+
+            // Move the map to the new location
+            map.setCenter(location);
+
+            // Place or move the marker
+            if (marker) {
+                marker.setPosition(location);
+            } else {
+                marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                });
+            }
+        } else {
+            alert("Could not find location for the entered address.");
+        }
+    });
+}
+
+// Load the map
+$(document).ready(initMap);
+
+$(document).ready(function() {
+    $('#AvailableQuantity').on('input', function() {
+        // Remove non-numeric and negative values
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    $('#price').on('input', function() {
+        // Remove non-numeric and negative values
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+});

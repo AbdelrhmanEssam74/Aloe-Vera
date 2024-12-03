@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\CategoriesController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\UserController;
@@ -16,3 +17,4 @@ Route::get('/aboutUs', [HomeController::class, 'aboutUs']);
 Route::get('/contactUs', [HomeController::class, 'contactUs']);
 Route::get('/user/profile', [UserController::class, 'profile']);
 Route::get('/user/settings', [UserController::class, 'settings']);
+Route::get('/categories/aloe-vera-farmers', [CategoriesController::class, 'aloe_vera_farmers']);
