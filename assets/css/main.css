@@ -723,6 +723,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
+input[type=tel],
 input[type=number] {
     -moz-appearance: textfield;
 }

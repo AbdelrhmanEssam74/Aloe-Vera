@@ -27,7 +27,8 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                                     <label for="full_name" class="form-label">Full Name <span
                                                 class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="full_name" id="full_name"
-                                           placeholder="Enter Your Full Name">
+                                           placeholder="Enter Your Full Name"
+                                           value="<?= (!empty(app()->session->getFlash('old')['full_name']) ? app()->session->getFlash('old')['full_name'] : '') ?>">
                                     <div class="errorHelp">
                                         <?php
                                         if (!empty(app()->session->getFlash('errors')['full_name'])):
@@ -42,7 +43,8 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                                     <label for="username" class="form-label">Username <span
                                                 class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="username" id="username"
-                                           placeholder="Enter Your Username">
+                                           placeholder="Enter Your Username"
+                                           value="<?= (!empty(app()->session->getFlash('old')['username']) ? app()->session->getFlash('old')['username'] : '') ?>">
                                     <div class="errorHelp">
                                         <?php
                                         if (!empty(app()->session->getFlash('errors')['username'])):
@@ -57,12 +59,29 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                                     <label for="email" class="form-label">Email <span
                                                 class="text-danger">*</span></label>
                                     <input type="email" class="form-control" name="email" id="email"
-                                           placeholder="name@example.com">
+                                           placeholder="name@example.com"
+                                           value="<?= (!empty(app()->session->getFlash('old')['email']) ? app()->session->getFlash('old')['email'] : '') ?>">
                                     <div class="errorHelp">
                                         <?php
                                         if (!empty(app()->session->getFlash('errors')['email'])):
                                             echo "<p  class=' text-danger form-text'>*" .
                                                 ucwords(str_replace('_', " ", app()->session->getFlash('errors')['email'][0]))
+                                                . "</p>";
+                                        endif;
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="col-12 position-relative">
+                                    <label for="email" class="form-label">Phone Number <span
+                                                class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" name="phone_number" id="phone_number"
+                                           placeholder="+20 "
+                                           value="<?= (!empty(app()->session->getFlash('old')['phone_number']) ? app()->session->getFlash('old')['phone_number'] : '') ?>">
+                                    <div class="errorHelp">
+                                        <?php
+                                        if (!empty(app()->session->getFlash('errors')['phone_number'])):
+                                            echo "<p  class=' text-danger form-text'>*" .
+                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['phone_number'][0]))
                                                 . "</p>";
                                         endif;
                                         ?>

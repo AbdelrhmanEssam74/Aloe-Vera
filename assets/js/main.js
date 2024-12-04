@@ -169,4 +169,8 @@ $(document).ready(function() {
         // Remove non-numeric and negative values
         this.value = this.value.replace(/[^0-9]/g, '');
     });
+    $('#phone_number').on('input', function() {
+        // Remove non-numeric and negative values
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
 });

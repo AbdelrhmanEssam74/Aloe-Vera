@@ -18,11 +18,12 @@ class SignupController
     {
         $validator = new Validation();
         $validator->rules([
-           'full_name' => 'required|alphaNum|between:6,30',
+            'full_name' => 'required|alphaNum|between:6,30',
             'username' => 'required|alphaNum|between:5,20|unique:users,username',
             'email' => 'required|email|between:15,75|unique:users,email',
             'password' => 'required|password_confirmation',
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required',
+            'phone_number' => 'required|phone_number'
         ]);
         $validator->make(request()->all());
         if (!$validator->passes()) {
@@ -36,6 +37,7 @@ class SignupController
             'username' => request('username'),
             'email' => request('email'),
             'password' => bcrypt(request('password')),
+            'phone_number' => request('phone_number'),
         ]);
         app()->session->setFlash('success', 'Registered successfully Now You Can Login With Your Email Address');
         return RedirectToView('login');
