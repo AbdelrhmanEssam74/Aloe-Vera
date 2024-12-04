@@ -9,6 +9,7 @@ use PROJECT\Validation\Rules\PasswordVerification;
 use PROJECT\Validation\Rules\EmailRule;
 use PROJECT\Validation\Rules\MaxRule;
 use PROJECT\Validation\Rules\PasswordConfirmation;
+use PROJECT\Validation\Rules\PhoneNumberRule;
 use PROJECT\Validation\Rules\RequireRule;
 use PROJECT\Validation\Rules\UniqueRule;
 
@@ -24,6 +25,7 @@ trait RuleMap
         'unique' => UniqueRule::class,
         'password_verification' => PasswordVerification::class,
         'email_exists' => EmailExistsRule::class,
+        'phone_number' => PhoneNumberRule::class,
     ];
 
     public static function resolve(string $rule, $options)
