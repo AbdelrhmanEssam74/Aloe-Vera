@@ -134,3 +134,32 @@ if(!function_exists('getCurrentDate')){
         return date($selector);
     };
 }
+if(!function_exists("getClientIp")){
+// Function to get the client IP address
+    function getClientIp() {
+        $ipaddress = 'UNKNOWN';
+        if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            // Split multiple IPs in the X-Forwarded-For header
+            $ip_list = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            foreach ($ip_list as $ip) {
+                $ip = trim($ip); // Remove any extra spaces
+                if (filter_var($ip, FILTER_VALIDATE_IP)) {
+                    $ipaddress = $ip;
+                    break; // Take the first valid IP address
+                }
+            }
+        } elseif (isset($_SERVER['HTTP_X_FORWARDED'])) {
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        } elseif (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        } elseif (isset($_SERVER['HTTP_FORWARDED'])) {
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        } elseif (isset($_SERVER['REMOTE_ADDR'])) {
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ipaddress;
+    }
+
+}

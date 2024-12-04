@@ -25,13 +25,12 @@ class CategoriesController
 
     public function farmers_upload()
     {
-        // handle user_data upload
         // handle upload request
         $user_id = app()->session->get('user_id');
         $images = request()->file('images');
         $filesHandler = new Files($images, $user_id);
         // Upload the files and check for errors
-        $uploadedFiles = $filesHandler->upload();
+//        $uploadedFiles = $filesHandler->upload();
         if ($filesHandler->hasError()) {
             // Display errors
             $errors = $filesHandler->getErrors();
@@ -39,6 +38,11 @@ class CategoriesController
                 echo "Error [{$error['key']}]: {$error['message']} (Severity: {$error['severity']}, Code: {$error['code']}, Timestamp: {$error['timestamp']})<br>";
             }
         }
+
+        // handle user_data upload
+        echo "<pre>";
+        print_r(request()->all());
+        echo "</pre>";
     }
 
 

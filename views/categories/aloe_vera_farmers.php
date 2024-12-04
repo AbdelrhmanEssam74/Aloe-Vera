@@ -86,9 +86,8 @@ else:
                                placeholder="Phone" readonly>
                     </div>
                     <div class="mb-3 col-12 col-md-4">
-                        <label class="form-label">Cactus Type</label>
+                        <label class="form-label">Select Cactus Type</label>
                         <select class="form-select" data-width="100%">
-                            <option value="">Select Type</option>
                             <option value="medicinal">Medicinal</option>
                             <option value="industrial">Industrial</option>
                             <option value="ornamental">Ornamental</option>
@@ -97,12 +96,12 @@ else:
                     <div class="mb-3 col-12 col-md-4">
                         <label class="form-label" for="AvailableQuantity">Available Quantity</label>
                         <input type="number" id="AvailableQuantity" name="available_quantity" class="form-control"
-                               placeholder="Available Quantity"
+                               placeholder="Weight or number of cactus units"
                                required pattern="^[1-9]\d*$" inputmode="numeric">
                     </div>
                     <div class="mb-3 col-12 col-md-4">
                         <label class="form-label" for="zipCode">Price</label>
-                        <input type="number" id="price" class="form-control" name="price" placeholder="Price" required>
+                        <input type="number" id="price" class="form-control" name="price" placeholder="price per kilogram or unit" required>
                         <!-- radio-->
                         <div class="d-flex gap-3">
                             <div class="form-check">
@@ -140,7 +139,7 @@ else:
                     <div class="mb-3 col-12 col-md-12">
                         <div class="mb-3">
                             <label for="imageUpload" class="form-label">Upload Images</label>
-                            <input type="file" class="form-control" multiple accept="image/*" name="images[]" id="
+                            <input type="file" class="form-control" required multiple accept="image/*" name="images[]" id="
                                imageUpload">
                         </div>
                     </div>
