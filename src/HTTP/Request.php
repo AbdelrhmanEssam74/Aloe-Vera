@@ -78,6 +78,14 @@ class Request
         return $_REQUEST;
     }
 
+    public function file($key = null): array
+    {
+        if (!is_null($key))
+            return $_FILES[$key];
+        else
+            return $_FILES;
+    }
+
     public function get($key)
     {
         return Arr::get($this->all(), $key);

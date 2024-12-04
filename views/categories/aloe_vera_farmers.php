@@ -71,23 +71,26 @@
                     </select>
                 </div>
                 <div class="mb-3 col-12 col-md-4">
-                    <label class="form-label" for="zipCode">Available Quantity</label>
-                    <input type="number" id="AvailableQuantity" class="form-control" placeholder="Available Quantity"
+                    <label class="form-label" for="AvailableQuantity">Available Quantity</label>
+                    <input type="number" id="AvailableQuantity" name="available_quantity" class="form-control"
+                           placeholder="Available Quantity"
                            required pattern="^[1-9]\d*$" inputmode="numeric">
                 </div>
                 <div class="mb-3 col-12 col-md-4">
                     <label class="form-label" for="zipCode">Price</label>
-                    <input type="number" id="price" class="form-control" placeholder="Price" required>
+                    <input type="number" id="price" class="form-control" name="price" placeholder="Price" required>
                     <!-- radio-->
                     <div class="d-flex gap-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" value="on" name="Negligible"
+                                   id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Negligible
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" value="off" name="Negligible"
+                                   id="flexRadioDefault2">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Non-Negligible
                             </label>
@@ -100,7 +103,8 @@
                     <input type="text" id="longitude" readonly hidden>
                     <div class="form-control">
                         <label for="address">Pick Your Location or Add Your Address:</label>
-                        <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                        <input type="text" class="form-control" name="address" id="address"
+                               placeholder="Enter your address">
                     </div>
                 </div>
                 <!-- Textarea -->
@@ -112,7 +116,8 @@
                 <div class="mb-3 col-12 col-md-12">
                     <div class="mb-3">
                         <label for="imageUpload" class="form-label">Upload Images</label>
-                        <input type="file" class="form-control" id="imageUpload" accept="image/*" multiple>
+                        <input type="file" class="form-control" multiple accept="image/*" name="images[]" id="
+                               imageUpload">
                     </div>
                 </div>
                 <div class="col-12">

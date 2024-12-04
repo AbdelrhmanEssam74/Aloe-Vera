@@ -18,3 +18,4 @@ Route::get('/contactUs', [HomeController::class, 'contactUs']);
 Route::get('/user/profile', [UserController::class, 'profile']);
 Route::get('/user/settings', [UserController::class, 'settings']);
 Route::get('/categories/aloe-vera-farmers', [CategoriesController::class, 'aloe_vera_farmers']);
+Route::post('/categories/farmers-upload', [CategoriesController::class, 'farmers_upload']);
