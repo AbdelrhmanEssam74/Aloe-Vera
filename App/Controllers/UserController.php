@@ -8,14 +8,13 @@ use PROJECT\View\View;
 class UserController
 {
     public function profile($id = null)
-    {// Fetch user data
-
+    {
+        // Fetch user data
         $userData = app()->db->row("SELECT * FROM `users` WHERE user_id = ?", [$id]);
         $date = [
-            "userData" => [
-                'full_name' => $userData[0]->full_name,
-                'username' => $userData[0]->username,
-            ]
+            'full_name' => $userData[0]->full_name,
+            'username' => $userData[0]->username,
+            'role' => $userData[0]->role,
         ];
         if ($date)
             return View::makeView('main.profile', $date);
