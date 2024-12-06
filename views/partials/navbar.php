@@ -1,61 +1,62 @@
-<!--Start Header-->
-<header class="border-bottom lh-1 py-3">
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <span class="avatar avatar-md">
-                    <img src="/assets/images/logo.jpg" alt="" width="50" class="rounded-circle">
-                </span>
-                <span class="fw-bold">Aloe Vera Inc.</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/aboutUs">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contactUs">Contact Us</a>
-                    </li>
-                </ul>
 
-                <span class="navbar-text">
-                    <?php if (!empty(app()->session->get('login')) && app()->session->get('login') === true): ?>
-                        <!-- User Dropdown -->
-                        <div class="dropdown">
-                            <a class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="avatar avatar-sm cursor-pointer">
-                                    <img src="<?php echo app()->session->get('user_avatar') ?: '/assets/images/default-avatar.png'; ?>" alt="User Avatar" width="40" class="rounded-circle">
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                <li><a class="dropdown-item" href="/user/profile/<?= app()->session->get('user_id') ?>">Profile</a></li>
-                                <li><a class="dropdown-item" href="/user/settings">Settings</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
-                            </ul>
-                        </div>
-                    <?php else: ?>
-                        <a href="/login" class="btn btn-success text-light text-decoration-none">Login</a>
-                        <a href="/signup" id="register-btn" class="btn btn-outline-success">Register</a>
-                    <?php endif; ?>
-                </span>
+<header>
+    <nav id="navbar" class="navbar-expand-lg position-fixed">
+        <div class="d-flex gap-2 align-items-center">
+            <div class="logo">
+                <a href="/" class="avatar avatar-sm ">
+                    <img src="/assets/images/logo.jpg" alt="logo" width="50" class="rounded-circle">
+                    <span>
+                </a>
             </div>
-            <span class="cart-icon badge text-success" data-count="5"
-                  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                  aria-controls="offcanvasRight">
-                <i class="fa-solid fa-cart-arrow-down"></i>
-            </span>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/aboutUs">About</a>
+                <a href="#">Services</a>
+                <a href="/contactUs">Contact</a>
+            </div>
+        </div>
+        <div class="menu-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+             aria-controls="offcanvasRight"><i class="fas fa-bars"></i></div>
+        <!--    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>-->
+        <div class="right-section">
+            <a href="/login" class="btn">Login</a>
+            <a href="/signup" class="btn outline">Sign Up</a>
+            <i class="fas fa-globe icon"></i>
+            <i class="fas fa-shopping-cart icon"></i>
+            <div class="dropdown">
+                <i class="fas fa-user-circle icon"></i>
+                <div class="dropdown-menu">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
         </div>
     </nav>
 </header>
-<!--End Header-->
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="nav-links-mobile">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</div>
+<!---->
+<!--<script>-->
+<!--    const menuIcon = document.querySelector('.menu-icon');-->
+<!--    const offcanvas = document.getElementById('offcanvasMenu');-->
+<!---->
+<!--    menuIcon.addEventListener('click', toggleOffcanvas);-->
+<!---->
+<!--    function toggleOffcanvas() {-->
+<!--        offcanvas.classList.toggle('active');-->
+<!--    }-->
+<!--</script>-->

@@ -11,7 +11,7 @@ if (!app()->session->get('login')) {
         <div class="row">
             <!-- Profile Header -->
             <div class="col-12 mb-4">
-                <div class="profile-header position-relative mb-4">
+                <div class=" position-relative mb-4">
 <!--                    <div class="position-absolute top-0 end-0 p-3">-->
 <!--                        <button class="btn btn-light"><i class="fas fa-edit me-2"></i>Edit Cover</button>-->
 <!--                    </div>-->
