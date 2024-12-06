@@ -88,6 +88,7 @@ html {
 #navbar .btn.outline:hover {
     color: white;
 }
+
 #navbar .btn:hover {
     background-color: var(--main-hover-color);
 }
@@ -106,7 +107,7 @@ html {
     display: none;
     position: absolute;
     right: 0;
-    top: 40px;
+    top: 30px;
     background-color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -150,6 +151,10 @@ html {
 
 .nav-links-mobile a:hover {
     padding: 10px;
+}
+
+.profile-pic-nav {
+    cursor: pointer;
 }
 
 /* Responsive styles */
