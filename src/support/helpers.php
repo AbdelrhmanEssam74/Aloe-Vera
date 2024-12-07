@@ -124,9 +124,10 @@ if (!function_exists("config")) {
 if (!function_exists("RedirectTo")) {
     function RedirectToView($path): void
     {
-        header("Location:" . env('HOST') . $path);
+        header("Location:" . $path);
     }
 }
+
 
 if(!function_exists('getCurrentDate')){
     function getCurrentDate( string $selector): string
