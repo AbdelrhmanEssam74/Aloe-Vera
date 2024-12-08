@@ -10,10 +10,10 @@ class ProductsController
     /**
      * Display a list of products in JSON format.
      */
-    public function index(): void
+    public function p($page): void
     {
         $response = new Response();
-        $products = Product::getProducts();
+        $products = Product::getProducts($page);
         $response->json($products);
     }
 

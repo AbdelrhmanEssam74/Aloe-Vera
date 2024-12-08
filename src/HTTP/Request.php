@@ -51,8 +51,8 @@ class Request
         $routePatterns = [];
         if (count($segments) > 1) {
             $routePatterns = [
-                $segments[0] . '/' . $segments[1] . '/{category}/{postTitle}/{postID}', // For patterns like /controller/method/{id}
-                $segments[0] . '/' . $segments[1] . '/{year}/{month}', // Optional pattern example
+                $segments[0] . '/' . $segments[1] . '/{category}/{categoryTitle}/{page}', // For patterns like /controller/method/{param}
+                $segments[0] . '/' . $segments[1] . '/{year}', // Optional pattern example
             ];
         }
         foreach ($routePatterns as $routePattern) {

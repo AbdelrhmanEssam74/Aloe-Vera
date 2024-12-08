@@ -21,4 +21,4 @@ Route::get('/user/settings', [UserController::class, 'settings']);
 Route::get('/categories/aloe-vera-farmers', [CategoriesController::class, 'aloe_vera_farmers']);
 Route::get('/categories/buy-aloe-vera-leaves', [CategoriesController::class, 'buy_aloe_vera']);
 Route::post('/categories/farmers-upload', [CategoriesController::class, 'farmers_upload']);
-Route::get('/products', [ProductsController::class, 'index']);
+Route::get('/products/p', [ProductsController::class, 'p']);

@@ -13,35 +13,16 @@
     </div>
 
     <!-- Product Section Headline -->
-    <h2 class="text-center mb-5">Our Products</h2>
+    <h2 class="text-center mb-5">Farmers Products</h2>
 
     <!-- Product Grid -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <!-- Product Item -->
-        <div class="col">
-            <div class="card h-100">
-                <div class="slider-container">
-                    <img src="https://via.placeholder.com/150" class="card-img-top slider-image" alt="Product Image">
-                    <img src="https://via.placeholder.com/150/0000FF" class="card-img-top slider-image" alt="Product Image" style="display:none;">
-                    <img src="https://via.placeholder.com/150/FF0000" class="card-img-top slider-image" alt="Product Image" style="display:none;">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Product Name</h5>
-                    <p><strong>Type:</strong> Electronics</p>
-                    <p><strong>Quantity:</strong> 5</p>
-                    <p><strong>Price:</strong> $99.99</p>
-                    <button class="btn btn-primary w-100">Add to Cart</button>
-                </div>
-            </div>
-        </div>
+    <div id="product-parent-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-5">
     </div>
 
     <!-- Pagination -->
     <nav class="mt-5">
         <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
         </ul>
     </nav>
 </div>
+<?php
