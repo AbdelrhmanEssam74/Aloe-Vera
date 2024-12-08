@@ -126,7 +126,7 @@
                     <p class="card-text">lorem</p>
                 </div>
                 <div class="card-footer">
-                    <a href="categories/buy-aloe-vera-leaves" class="btn btn-primary">Explore
+                    <a  href="categories/buy-aloe-vera-leaves" class=" buy-aloe-vera btn btn-primary">Explore
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>

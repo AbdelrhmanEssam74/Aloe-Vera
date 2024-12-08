@@ -66,5 +66,8 @@ class CategoriesController
         return RedirectToView('/categories/aloe-vera-farmers');
     }
 
-
+    public  function buy_aloe_vera()
+    {
+        return View::makeView('categories.buy_aloe_vera_leaves');
+    }
 }

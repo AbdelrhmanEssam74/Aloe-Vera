@@ -3,6 +3,7 @@
 use App\Controllers\CategoriesController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
+use App\Controllers\ProductsController;
 use App\Controllers\UserController;
 use App\Controllers\SignupController;
 use PROJECT\HTTP\Route;
@@ -18,4 +19,6 @@ Route::get('/contactUs', [HomeController::class, 'contactUs']);
 Route::get('/user/profile', [UserController::class, 'profile']);
 Route::get('/user/settings', [UserController::class, 'settings']);
 Route::get('/categories/aloe-vera-farmers', [CategoriesController::class, 'aloe_vera_farmers']);
+Route::get('/categories/buy-aloe-vera-leaves', [CategoriesController::class, 'buy_aloe_vera']);
 Route::post('/categories/farmers-upload', [CategoriesController::class, 'farmers_upload']);
+Route::get('/products', [ProductsController::class, 'index']);
