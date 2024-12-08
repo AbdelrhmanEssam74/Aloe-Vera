@@ -168,9 +168,6 @@ $(document).ready(function() {
     $('#price').on('input', function() {
         // Allow numbers and at most one decimal point
         this.value = this.value.replace(/[^0-9.]/g, ''); // Remove non-numeric and non-dot characters
-        if ((this.value.match(/\./g) || []).length > 1) {
-            this.value = this.value.slice(0, this.value.lastIndexOf('.')); // Keep only the first dot
-        }
     });
     $('#phone_number').on('input', function() {
         // Remove non-numeric and negative values
