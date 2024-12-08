@@ -21,6 +21,7 @@ class SignupController
             'full_name' => 'required|alphaNum|between:6,30',
             'username' => 'required|alphaNum|between:5,20|unique:users,username',
             'email' => 'required|email|between:15,75|unique:users,email',
+            'address' => 'required',
             'password' => 'required|password_confirmation',
             'password_confirmation' => 'required',
             'phone_number' => 'required|phone_number'
@@ -36,6 +37,7 @@ class SignupController
             'full_name' => request('full_name'),
             'username' => request('username'),
             'email' => request('email'),
+            'address' => request('address'),
             'password' => bcrypt(request('password')),
             'phone_number' => request('phone_number'),
         ]);

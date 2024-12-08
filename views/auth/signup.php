@@ -71,7 +71,7 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                                         ?>
                                     </div>
                                 </div>
-                                <div class="col-12 position-relative">
+                                <div class="col-12 mb-3 position-relative">
                                     <label for="email" class="form-label">Phone Number <span
                                                 class="text-danger">*</span></label>
                                     <input type="tel" class="form-control" name="phone_number" id="phone_number"
@@ -87,7 +87,26 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                                         ?>
                                     </div>
                                 </div>
-                                <div class="col-12 position-relative">
+                                <div class=" mt-4 col-12 col-md-12">
+                                    <div id="map" class="mb-4"></div>
+                                    <input type="text" id="latitude" readonly hidden>
+                                    <input type="text" id="longitude" readonly hidden>
+                                    <div class="form-control">
+                                        <label for="address">Pick Your Location or Add Your Address:</label>
+                                        <input type="text" class="form-control" name="address" id="address"
+                                               placeholder="Enter your address">
+                                        <div class="errorHelp mt-1">
+                                            <?php
+                                            if (!empty(app()->session->getFlash('errors')['address'])):
+                                                echo "<p  class=' text-danger form-text'>*" .
+                                                    ucwords(str_replace('_', " ", app()->session->getFlash('errors')['address'][0]))
+                                                    . "</p>";
+                                            endif;
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4 position-relative">
                                     <label for="password" class="form-label">Password <span
                                                 class="text-danger">*</span></label>
                                     <input type="password" class="form-control" name="password" id="password"
@@ -103,7 +122,7 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                                         ?>
                                     </div>
                                 </div>
-                                <div class="col-12 position-relative">
+                                <div class="col-12 mt-4 position-relative">
                                     <label for="password" class="form-label">Confirm Password <span
                                                 class="text-danger">*</span></label>
                                     <input type="password" class="form-control" name="password_confirmation"
@@ -119,15 +138,6 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                                         ?>
                                     </div>
                                 </div>
-                                <!--                                <div class="col-12">-->
-                                <!--                                    <div class="form-check">-->
-                                <!--                                        <input class="form-check-input" type="checkbox" value="" name="remember_me"-->
-                                <!--                                               id="remember_me">-->
-                                <!--                                        <label class="form-check-label text-secondary" for="remember_me">-->
-                                <!--                                            I agree all statements in Terms of service-->
-                                <!--                                        </label>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
                                 <div class="col-12">
                                     <div class="d-grid">
                                         <button class="btn bsb-btn-xl btn-primary" type="submit">

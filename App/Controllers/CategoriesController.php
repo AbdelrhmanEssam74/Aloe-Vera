@@ -35,12 +35,11 @@ class CategoriesController
         $storedImages = $filesHandler->getImagesArr();
         $validator = new Validation();
         $validator->rules([
-            'full_name' => 'required',
+            'product_title' => 'required',
             'phone_number' => 'required',
             'cactus_type' => 'required',
             'available_quantity' => 'required',
             'price' => 'required',
-            'address' => 'required',
         ]);
         $validator->make(request()->all());
 
@@ -51,14 +50,13 @@ class CategoriesController
         $uploadedFiles = $filesHandler->upload();
         Product::create([
             'product_id' => $filesHandler->getProductId(),
-            'full_name' => request('full_name'),
+            'product_title' => request('product_title'),
             'phone_number' => request('phone_number'),
             'user_id' => $user_id,
             'cactus_type' => request('cactus_type'),
             'quantity' => request('available_quantity'),
             'price' => request('price'),
             'negligible' => (request('negligible') === "on") ? 1 : 0,
-            'address' => request('address'),
             'details' => request('additional-details'),
             'images' => $filesHandler->getImagesArr()
         ]);

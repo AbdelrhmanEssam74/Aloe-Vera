@@ -8,8 +8,8 @@
             </div>
             <div class="nav-links">
                 <a href="/">Home</a>
+                <a href="/#categories">Categories</a>
                 <a href="/aboutUs">About</a>
-                <a href="#">Services</a>
                 <a href="/contactUs">Contact</a>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 </svg>
             </a>
             <div class="cart-icon" data-count="5">
-                <a  data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                     <i class="fa-solid fa-cart-shopping "></i>
                 </a>
             </div>

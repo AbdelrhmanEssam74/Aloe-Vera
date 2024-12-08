@@ -95,7 +95,7 @@
 <!--End CTA Section-->
 
 <!--Start Categories Section-->
-<section class="py-6 category-section mb-4">
+<section id="categories" class="py-6 category-section mb-4">
     <img src="/assets/images/item1.png" class="category-section-img">
     <img src="/assets/images/item1.png" class="category-section-img img2">
     <div class="container">
