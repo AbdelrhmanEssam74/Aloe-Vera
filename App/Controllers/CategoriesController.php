@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\Product;
 use PROJECT\support\Files;
+use PROJECT\Validation\Validation;
 use PROJECT\View\View;
 
 class CategoriesController
@@ -30,19 +32,36 @@ class CategoriesController
         $images = request()->file('images');
         $filesHandler = new Files($images, $user_id);
         // Upload the files and check for errors
-//        $uploadedFiles = $filesHandler->upload();
-        if ($filesHandler->hasError()) {
-            // Display errors
-            $errors = $filesHandler->getErrors();
-            foreach ($errors as $error) {
-                echo "Error [{$error['key']}]: {$error['message']} (Severity: {$error['severity']}, Code: {$error['code']}, Timestamp: {$error['timestamp']})<br>";
-            }
-        }
+        $storedImages = $filesHandler->getImagesArr();
+        $validator = new Validation();
+        $validator->rules([
+            'full_name' => 'required',
+            'phone_number' => 'required',
+            'cactus_type' => 'required',
+            'available_quantity' => 'required',
+            'price' => 'required',
+            'address' => 'required',
+        ]);
+        $validator->make(request()->all());
 
-        // handle user_data upload
-        echo "<pre>";
-        print_r(request()->all());
-        echo "</pre>";
+        if (!$validator->passes()) {
+            app()->session->setFlash('errors', $validator->errors());
+            return backRedirect();
+        }
+        $uploadedFiles = $filesHandler->upload();
+        Product::create([
+            'full_name' => request('full_name'),
+            'phone_number' => request('phone_number'),
+            'user_id' => $user_id,
+            'cactus_type' => request('cactus_type'),
+            'quantity' => request('available_quantity'),
+            'price' => request('price'),
+            'negligible' => (request('negligible') === "on") ? 1 : 0,
+            'address' => request('address'),
+            'images' => $filesHandler->getImagesArr()
+        ]);
+        app()->session->setFlash('success', 'Product uploaded successfully');
+        return RedirectToView('/categories/aloe-vera-farmers');
     }
 
 

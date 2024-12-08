@@ -61,7 +61,15 @@ if (!app()->session->get('login')):
 <?php
 else:
     ?>
+
     <div id="farmer-form" class="container p-3 farmers-from">
+        <div class="mb-5 d-flex align-items-center justify-content-center">
+            <?php
+            if (!empty(app()->session->getFlash('success'))) {
+                echo '<div class="alert w-fit alert-success text-center ">' . app()->session->getFlash('success') . '</div>';
+            }
+            ?>
+        </div>
         <!-- Card -->
         <div class="card mb-4">
             <!-- Card Header -->
@@ -78,56 +86,116 @@ else:
                                value="<?= (!empty($full_name) ? $full_name : '') ?>" class="form-control"
                                placeholder="Full Name"
                                readonly>
+                        <div class="errorHelp">
+                            <?php
+                            if (!empty(app()->session->getFlash('errors')['full_name'])):
+                                echo "<p  class=' text-danger form-text'>*" .
+                                    ucwords(str_replace('_', " ", app()->session->getFlash('errors')['full_name'][0]))
+                                    . "</p>";
+                            endif;
+                            ?>
+                        </div>
                     </div>
                     <div class="mb-3 col-12 col-md-6">
                         <label class="form-label" for="phone">Phone Number </label>
-                        <input type="text" id="phone" name="phone_number"
+                        <input type="text" id="phone_number" name="phone_number"
                                value="<?= (!empty($phone_number) ? $phone_number : '') ?>" class="form-control"
                                placeholder="Phone" readonly>
+                        <div class="errorHelp">
+                            <?php
+                            if (!empty(app()->session->getFlash('errors')['phone_number'])):
+                                echo "<p  class=' text-danger form-text'>*" .
+                                    ucwords(str_replace('_', " ", app()->session->getFlash('errors')['phone_number'][0]))
+                                    . "</p>";
+                            endif;
+                            ?>
+                        </div>
                     </div>
                     <div class="mb-3 col-12 col-md-4">
-                        <label class="form-label">Select Cactus Type</label>
-                        <select class="form-select" data-width="100%">
+                        <label class="form-label">Cactus Type</label>
+                        <select id="cactus_type" name="cactus_type" class="form-select" data-width="100%">
+                            <option value="">Select Cactus</option>
+                            <option
                             <option value="medicinal">Medicinal</option>
                             <option value="industrial">Industrial</option>
                             <option value="ornamental">Ornamental</option>
                         </select>
+                        <div class="errorHelp">
+                            <?php
+                            if (!empty(app()->session->getFlash('errors')['cactus_type'])):
+                                echo "<p  class=' text-danger form-text'>*" .
+                                    ucwords(str_replace('_', " ", app()->session->getFlash('errors')['cactus_type'][0]))
+                                    . "</p>";
+                            endif;
+                            ?>
+                        </div>
                     </div>
                     <div class="mb-3 col-12 col-md-4">
-                        <label class="form-label" for="AvailableQuantity">Available Quantity</label>
+                        <label class="form-label" for="AvailableQuantity">Available Quantity <span
+                                    style="font-size: 13px;font-weight: 200">(Weight or number of cactus units)</span></label>
                         <input type="number" id="AvailableQuantity" name="available_quantity" class="form-control"
                                placeholder="Weight or number of cactus units"
-                               required pattern="^[1-9]\d*$" inputmode="numeric">
+                               pattern="^[1-9]\d*$" inputmode="numeric">
+                        <div class="errorHelp">
+                            <?php
+                            if (!empty(app()->session->getFlash('errors')['available_quantity'])):
+                                echo "<p  class=' text-danger form-text'>*" .
+                                    ucwords(str_replace('_', " ", app()->session->getFlash('errors')['available_quantity'][0]))
+                                    . "</p>";
+                            endif;
+                            ?>
+                        </div>
                     </div>
-                    <div class="mb-3 col-12 col-md-4">
-                        <label class="form-label" for="zipCode">Price</label>
-                        <input type="number" id="price" class="form-control" name="price" placeholder="price per kilogram or unit" required>
+                    <div class="mb-5 col-12 col-md-4">
+                        <label class="form-label" for="zipCode">Price
+                            <span style="font-size: 13px;font-weight: 200">(Price per kilogram or units)</span>
+                        </label>
+                        <input type="number" id="price" class="form-control" name="price"
+                               placeholder="price per kilogram or unit">
                         <!-- radio-->
                         <div class="d-flex gap-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="on" name="Negligible"
-                                       id="flexRadioDefault1">
+                                <input class="form-check-input" type="radio" value="on" name="negligible"
+                                       id="flexRadioDefault1" checked>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Negligible
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="off" name="Negligible"
+                                <input class="form-check-input" type="radio" value="off" name="negligible"
                                        id="flexRadioDefault2">
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Non-Negligible
                                 </label>
                             </div>
                         </div>
+                        <div class="errorHelp">
+                            <?php
+                            if (!empty(app()->session->getFlash('errors')['price'])):
+                                echo "<p  class=' text-danger form-text'>*" .
+                                    ucwords(str_replace('_', " ", app()->session->getFlash('errors')['price'][0]))
+                                    . "</p>";
+                            endif;
+                            ?>
+                        </div>
                     </div>
-                    <div class="mb-3 col-12 col-md-12">
-                        <div id="map"></div>
+                    <div class="mb-4 col-12 col-md-12">
+                        <div id="map" class="mb-4"></div>
                         <input type="text" id="latitude" readonly hidden>
                         <input type="text" id="longitude" readonly hidden>
                         <div class="form-control">
                             <label for="address">Pick Your Location or Add Your Address:</label>
                             <input type="text" class="form-control" name="address" id="address"
                                    placeholder="Enter your address">
+                            <div class="errorHelp mt-1">
+                                <?php
+                                if (!empty(app()->session->getFlash('errors')['address'])):
+                                    echo "<p  class=' text-danger form-text'>*" .
+                                        ucwords(str_replace('_', " ", app()->session->getFlash('errors')['address'][0]))
+                                        . "</p>";
+                                endif;
+                                ?>
+                            </div>
                         </div>
                     </div>
                     <!-- Textarea -->
@@ -136,10 +204,11 @@ else:
                         <textarea class="form-control" name="additional-details" id="textarea-input"
                                   placeholder="Additional Details"></textarea>
                     </div>
-                    <div class="mb-3 col-12 col-md-12">
+                    <div class="mb-4 col-12 col-md-12">
                         <div class="mb-3">
                             <label for="imageUpload" class="form-label">Upload Images</label>
-                            <input type="file" class="form-control" required multiple accept="image/*" name="images[]" id="
+                            <input type="file" class="form-control" multiple accept="image/*" required name="images[]"
+                                   id="
                                imageUpload">
                         </div>
                     </div>

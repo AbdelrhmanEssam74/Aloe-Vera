@@ -10,6 +10,7 @@ class Files
     private $upload_dir;
     private $uploaded_files = [];
     private $errorsBag = [];
+    private $arr_images = [];
 
     public function __construct(array $images, $user_id, string $upload_dir = 'assets/uploads/')
     {
@@ -118,7 +119,7 @@ class Files
 
             // Create a new file name with a counter from 0 to length
             $new_img_name = $this->item_id . '_' . $this->user_id . '_' . $index . '.' . $img_extension;
-
+            $this->arr_images[] = $new_img_name;
             // Destination path
             $destination = $new_upload_dir_item . '/' . $new_img_name;
 
@@ -130,5 +131,10 @@ class Files
             }
         }
         return $this->uploaded_files;
+    }
+
+    public function getImagesArr() : string
+    {
+        return implode("|" , $this->uploaded_files);
     }
 }
