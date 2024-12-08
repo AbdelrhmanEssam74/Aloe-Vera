@@ -50,6 +50,7 @@ class CategoriesController
         }
         $uploadedFiles = $filesHandler->upload();
         Product::create([
+            'product_id' => $filesHandler->getProductId(),
             'full_name' => request('full_name'),
             'phone_number' => request('phone_number'),
             'user_id' => $user_id,
@@ -58,6 +59,7 @@ class CategoriesController
             'price' => request('price'),
             'negligible' => (request('negligible') === "on") ? 1 : 0,
             'address' => request('address'),
+            'details' => request('additional-details'),
             'images' => $filesHandler->getImagesArr()
         ]);
         app()->session->setFlash('success', 'Product uploaded successfully');

@@ -13,7 +13,7 @@ class MYSQLManager implements DatabaseManager
     public function connect(): \PDO
     {
         if (!self::$instance) {
-            self::$instance = new \PDO(env('DB_DRIVER') . ":host=" . env("DB_HOST") . ";dbname=" . env("DB_Database"), env("DB_USERNAME"), env("DB_PASSWORD"));
+            self::$instance = new \PDO(env('DB_DRIVER') . ":host=" . env("DB_HOST") . ";dbname=" . env("DB_Database") . ";charset=utf8mb4", env("DB_USERNAME"), env("DB_PASSWORD"));
         }
         return self::$instance;
     }
@@ -57,7 +57,7 @@ class MYSQLManager implements DatabaseManager
             $stm->bindValue(1, $filter[2]);
         }
         $stm->execute();
-        return  $stm->fetchAll(\PDO::FETCH_CLASS,Model::getModel());
+        return $stm->fetchAll(\PDO::FETCH_CLASS, Model::getModel());
     }
 
     public function update($id, $data)

@@ -133,8 +133,13 @@ class Files
         return $this->uploaded_files;
     }
 
-    public function getImagesArr() : string
+    public function getImagesArr(): string
     {
-        return implode("|" , $this->uploaded_files);
+        return implode("|", $this->uploaded_files);
+    }
+
+    public function getProductId()
+    {
+        return $this->item_id;
     }
 }
