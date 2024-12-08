@@ -13,8 +13,8 @@ class Product extends Model
     public $quantity;
     public $price;
     public $negligible;
-    public $address;
     public $details;
+
     public $images;
     public $upload_date;
     public $updated_date;

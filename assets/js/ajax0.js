@@ -3,7 +3,7 @@ $(document).ready(function () {
     let currentPage = 1; // Initialize current page to 1
 
     function fetchProducts(page = 1) {
-        const host = "http://localhost:800/";
+        const host = "https://bisque-parrot-667884.hostingersite.com/";
         $.ajax({
             url: host + "products/p/" + page,
             method: "GET",
@@ -24,7 +24,7 @@ $(document).ready(function () {
                 }
             },
             error: function (jqXHR, textStatus, errorTh) {
-                console.error(jqXHR, textStatus, errorTh);
+                console.error(textStatus, errorTh);
                 // Show a warning alert if an error occurs
                 showWarningAlert("An error occurred while fetching products. Please try again.");
             }
