@@ -3,8 +3,8 @@ $(document).ready(function () {
     var currentPage = 1; // Initialize current page to 1
     var filter = null;
     var amount = 0;
-     // const host = "https://bisque-parrot-667884.hostingersite.com/";
-    const host = "http://localhost:800/";
+     const host = "https://bisque-parrot-667884.hostingersite.com/";
+    // const host = "http://localhost:800/";
 
     function fetchProducts(page = 1, filter = "null") {
         $.ajax({
