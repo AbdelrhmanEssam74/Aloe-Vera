@@ -3,8 +3,8 @@ $(document).ready(function () {
     var currentPage = 1; // Initialize current page to 1
     var filter = null;
     var amount = 0;
-     const host = "https://bisque-parrot-667884.hostingersite.com/";
-    // const host = "http://localhost:800/";
+     // const host = "https://bisque-parrot-667884.hostingersite.com/";
+    const host = "http://localhost:800/";
 
     function fetchProducts(page = 1, filter = "null") {
         $.ajax({
@@ -142,40 +142,43 @@ $(document).ready(function () {
     $(document).on("click", ".cart-btn", function () {
         const productId = $(this).data("product_id");
         const userId = $(".cart-icon").data("user_id");
-        const amount = parseInt(
-            $(this).siblings(".d-flex").find(".amount-display").text()
-        );
-
-        if (amount > 0) {
-            // Check if the product is already in the cart
-            const existingProduct = cart.find(
-                (item) => item.product_id === productId
+        if (userId == ""){
+            // Show modal prompting user to log in
+            $("#loginModal").modal("show");
+        }else{
+            const amount = parseInt(
+                $(this).siblings(".d-flex").find(".amount-display").text()
             );
 
-            if (existingProduct) {
-                // Update the quantity of the existing product
-                existingProduct.quantity += amount;
+            if (amount > 0) {
+                // Check if the product is already in the cart
+                const existingProduct = cart.find(
+                    (item) => item.product_id === productId
+                );
+
+                if (existingProduct) {
+                    // Update the quantity of the existing product
+                    existingProduct.quantity += amount;
+                } else {
+                    // Add a new product to the cart
+                    cart.push({
+                        product_id: productId,
+                        user_id: userId,
+                        quantity: amount,
+                    });
+                }
+
+                // Reset the amount display to 0 for the current product
+                $(this).siblings(".d-flex").find(".amount-display").text(0);
+
+                // Disable the Add to Cart button again
+                $(this).prop("disabled", true);
             } else {
-                // Add a new product to the cart
-                cart.push({
-                    product_id: productId,
-                    user_id: userId,
-                    quantity: amount,
-                });
+                alert("Please select at least one item to add to the cart.");
+                return;
             }
 
-            // Reset the amount display to 0 for the current product
-            $(this).siblings(".d-flex").find(".amount-display").text(0);
-
-            // Disable the Add to Cart button again
-            $(this).prop("disabled", true);
-        } else {
-            alert("Please select at least one item to add to the cart.");
-            return;
-        }
-
-        // Send AJAX request to add to cart
-        if (userId) {
+            // Send AJAX request to add to cart
             $.ajax({
                 url: host + "cart/add",
                 method: "POST",
@@ -189,10 +192,8 @@ $(document).ready(function () {
                     console.error(errorThrown);
                 },
             });
-        } else {
-            // Show modal prompting user to log in
-            $("#loginModal").modal("show");
         }
+
     });
 
     // get the count of items
