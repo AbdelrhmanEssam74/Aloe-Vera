@@ -141,7 +141,7 @@ $(document).ready(function () {
     // Handle the Add to Cart button click
     $(document).on("click", ".cart-btn", function () {
         const productId = $(this).data("product_id");
-        const userId = $(this).data("user_id");
+        const userId = $(".cart-icon").data("user_id");
         const amount = parseInt(
             $(this).siblings(".d-flex").find(".amount-display").text()
         );
@@ -181,6 +181,7 @@ $(document).ready(function () {
             success: function (data) {
             },
             error: function (jqXHR, textStatus, errorThrown) {
+                console.error(errorThrown)
             },
         });
     });
@@ -209,6 +210,7 @@ $(document).ready(function () {
                 url: host + "cart/items/" + user_id,
                 method: "GET",
                 success: function (data) {
+
                     populateCart(data);
                 },
                 error: function (jqXHR, textStatus, error) {
@@ -271,12 +273,12 @@ $(document).ready(function () {
                 method: "GET",
                 data: JSON.stringify({product_id: productId}),
                 success: function (response) {
-                    let product_count = $(".cart-icon").attr("data-count");
-                    if (product_count > 0) {
-                        $(".cart-icon").attr("data-count", --product_count);
-                    } else if (product_count == 0) {
-                        $(".cart-icon").removeClass("has-data");
-                    }
+                    // let product_count = $(".cart-icon").attr("data-count");
+                    // if (product_count > 0) {
+                    //     $(".cart-icon").attr("data-count", --product_count);
+                    // } else if (product_count == 0) {
+                    //     $(".cart-icon").removeClass("has-data");
+                    // }
                     // Optionally, update cart summary or display a success message
                 },
                 error: function (xhr, status, error) {
