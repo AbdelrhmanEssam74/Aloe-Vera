@@ -138,13 +138,14 @@ $(document).ready(function () {
             .prop("disabled", amount === 0);
     });
 
-    // Handle the Add to Cart button click
+// Handle the Add to Cart button click
     $(document).on("click", ".cart-btn", function () {
         const productId = $(this).data("product_id");
         const userId = $(".cart-icon").data("user_id");
         const amount = parseInt(
             $(this).siblings(".d-flex").find(".amount-display").text()
         );
+
         if (amount > 0) {
             // Check if the product is already in the cart
             const existingProduct = cart.find(
@@ -162,6 +163,7 @@ $(document).ready(function () {
                     quantity: amount,
                 });
             }
+
             // Reset the amount display to 0 for the current product
             $(this).siblings(".d-flex").find(".amount-display").text(0);
 
@@ -169,22 +171,30 @@ $(document).ready(function () {
             $(this).prop("disabled", true);
         } else {
             alert("Please select at least one item to add to the cart.");
+            return;
         }
 
-        // send ajax  request to add to cart
-        $.ajax({
-            url: host + "cart/add",
-            method: "POST",
-            data: {
-                data: cart,
-            },
-            success: function (data) {
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.error(errorThrown)
-            },
-        });
+        // Send AJAX request to add to cart
+        if (userId) {
+            $.ajax({
+                url: host + "cart/add",
+                method: "POST",
+                data: {
+                    data: cart,
+                },
+                success: function (data) {
+                    console.log("Cart updated successfully.");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(errorThrown);
+                },
+            });
+        } else {
+            // Show modal prompting user to log in
+            $("#loginModal").modal("show");
+        }
     });
+
     // get the count of items
     let user_id = $(".cart-icon").attr("data-user_id");
     setInterval(function () {
