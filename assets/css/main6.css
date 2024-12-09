@@ -1034,3 +1034,10 @@ textarea {
 }
 
 /*End Categories*/
+.show-pass{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    font-size: 25px;
+    cursor: pointer;
+}

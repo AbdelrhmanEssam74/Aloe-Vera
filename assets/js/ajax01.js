@@ -3,8 +3,9 @@ $(document).ready(function () {
     var currentPage = 1; // Initialize current page to 1
     var filter = null;
     var amount = 0;
-     const host = "https://bisque-parrot-667884.hostingersite.com/";
-    // const host = "http://localhost:800/";
+    // const host = "https://bisque-parrot-667884.hostingersite.com/";
+
+    const host = "http://localhost:800/";
 
     function fetchProducts(page = 1, filter = "null") {
         $.ajax({
@@ -142,10 +143,10 @@ $(document).ready(function () {
     $(document).on("click", ".cart-btn", function () {
         const productId = $(this).data("product_id");
         const userId = $(".cart-icon").data("user_id");
-        if (userId == ""){
+        if (userId == "") {
             // Show modal prompting user to log in
             $("#loginModal").modal("show");
-        }else{
+        } else {
             const amount = parseInt(
                 $(this).siblings(".d-flex").find(".amount-display").text()
             );
@@ -373,9 +374,16 @@ $(document).ready(function () {
         cardBody.append(
             $("<p>").html(`<strong>Quantity:</strong> ${product.quantity} KG`)
         );
-        cardBody.append(
-            $("<p>").html(`<strong>Price Per Kilogram:</strong> EGP ${product.price}`)
-        );
+        if (!product.negligible) {
+            cardBody.append(
+                $("<p>").html(`<strong>Price Per Kilogram:</strong> EGP ${product.price}`)
+            );
+        }else{
+            cardBody.append(
+                $("<p>").html(`<strong>Price Per Kilogram:</strong> Not Available`)
+            );
+        }
+
 
         // Initial value of the amount
 
@@ -427,4 +435,23 @@ $(document).ready(function () {
         // Append the colDiv to a parent container (e.g., a row or a specific div)
         $("#product-parent-container").append(colDiv);
     }
+    // Add eye icon after each password input
+    $('input[type="password"]').each(function () {
+        const eyeIcon = $('<span class="toggle-password show-pass">👁️</span>');
+        $(this).after(eyeIcon);
+    });
+
+    // Toggle password visibility on eye icon click
+    $(document).on('click', '.toggle-password', function () {
+        const input = $(this).prev('input[type="password"], input[type="text"]');
+        const inputType = input.attr('type');
+
+        if (inputType === 'password') {
+            input.attr('type', 'text'); // Show password
+            $(this).text('🙈'); // Change icon to hide
+        } else {
+            input.attr('type', 'password'); // Hide password
+            $(this).text('👁️'); // Change icon to show
+        }
+    });
 });
