@@ -67,7 +67,7 @@
     <div class="nav-links-mobile">
       <a href="/">Home</a>
       <a href="/aboutUs">About</a>
-      <a href="#">Services</a>
+         <a href="/#categories">Categories</a>
       <a href="/contactUs">Contact</a>
     </div>
   </div>
