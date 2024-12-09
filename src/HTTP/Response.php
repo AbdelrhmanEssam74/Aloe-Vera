@@ -56,7 +56,7 @@ class Response
      * @param mixed $data The data to encode as JSON.
      * @param int $statusCode Optional HTTP status code for the response. Defaults to 200.
      */
-    public function json($data, int $statusCode = 200): void
+    public function json(mixed $data, int $statusCode = 200): void
     {
         $this->setStatusCode($statusCode);
         header('Content-Type: application/json');

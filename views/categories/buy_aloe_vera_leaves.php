@@ -1,15 +1,15 @@
 <div class="container py-5" style="margin-top: 100px">
     <!-- Filter and Search Section -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <a href="#" class="btn btn-outline-primary me-2">All</a>
-            <a href="#" class="btn btn-outline-primary me-2">Electronics</a>
-            <a href="#" class="btn btn-outline-primary me-2">Clothing</a>
-            <a href="#" class="btn btn-outline-primary me-2">Home Appliances</a>
+        <div class="filter-container">
+            <a data-filter="null" class="btn btn-outline-primary me-2">All</a>
+            <a data-filter="medicinal" class="btn btn-outline-primary me-2">Medicinal</a>
+            <a data-filter="ornamental" class="btn btn-outline-primary me-2">Ornamental</a>
+            <a data-filter="industrial" class="btn btn-outline-primary me-2">Industrial</a>
         </div>
-<!--        <div>-->
-<!--            <input type="text" class="form-control" placeholder="Search products...">-->
-<!--        </div>-->
+        <!--        <div>-->
+        <!--            <input type="text" class="form-control" placeholder="Search products...">-->
+        <!--        </div>-->
     </div>
 
     <!-- Product Section Headline -->

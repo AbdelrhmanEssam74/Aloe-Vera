@@ -6,7 +6,7 @@ namespace App\Models;
 class Product extends Model
 {
     public $product_id;
-    public $full_name;
+    public $product_title;
     public $phone_number;
     public $user_id;
     public $cactus_type;
@@ -20,11 +20,15 @@ class Product extends Model
     public $updated_date;
 
 
-    public static function getProducts($page)
+    public static function getProducts($page, $filter)
     {
         self::$instance = static::class;
         // Fetch all products from the database
-        $allProducts = app()->db->read("*");
+        if ($filter != "null"):
+            $allProducts = app()->db->row("SELECT * FROM products WHERE cactus_type = ?", [$filter]);
+        else:
+            $allProducts = app()->db->row("SELECT * FROM products");
+        endif;
         // Split products into chunks of 6
         $productsPerPage = array_chunk($allProducts, 6);
         // Return the array corresponding to the requested page (zero-based index)
