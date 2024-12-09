@@ -25,3 +25,5 @@ Route::post('/categories/farmers-upload', [CategoriesController::class, 'farmers
 Route::get('/products/page', [ProductsController::class, 'page']);
 Route::post('/cart/add', [CartController::class, 'add']);
 Route::get('/cart/items', [CartController::class, 'items']);
+Route::get('/cart/count', [CartController::class, 'count']);
+Route::get('/cart/delete', [CartController::class, 'delete']);

@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="button-container">
-            <a href="#" class="shop-button">
+            <a href="categories/buy-aloe-vera-leaves" class="shop-button">
                 Shop Now
                 <span class="arrow">
               <i class="fa-solid fa-arrow-right"></i>

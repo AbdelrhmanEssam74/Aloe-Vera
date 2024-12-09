@@ -108,7 +108,7 @@ html {
     color: var(--main-color);
 
 }
-#navbar .cart-icon:after {
+#navbar .cart-icon.has-data:after {
     content: attr(data-count);
     position: absolute;
     top: -5px;
@@ -193,7 +193,7 @@ html {
         display: block;
     }
 
-    #navbar .right-section .btn {
+    #navbar .right-section .btn.register {
         display: none;
     }
 }

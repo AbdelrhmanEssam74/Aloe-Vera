@@ -16,8 +16,12 @@ class Cart extends Model
     self::$instance = static::class;
     return app()->db->create($data);
   }
-  public static function getItems()
+  public static function getItems($user_id)
   {
-  return app()->db->row("SELECT * FROM carts JOIN products ON products.product_id = carts.product_id");
+    return app()->db->row("SELECT * FROM carts JOIN products ON products.product_id = carts.product_id WHERE carts.user_id = ?", [$user_id]);
+  }
+  public static function deleteItem($user_id, $product_id)
+  {
+    return app()->db->row("DELETE FROM carts WHERE user_id = ? AND product_id = ?", [$user_id, $product_id]);
   }
 }
