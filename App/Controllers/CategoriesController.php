@@ -36,7 +36,6 @@ class CategoriesController
         $validator = new Validation();
         $validator->rules([
             'product_title' => 'required',
-            'phone_number' => 'required',
             'cactus_type' => 'required',
             'available_quantity' => 'required',
             'price' => 'required',
@@ -51,7 +50,6 @@ class CategoriesController
         Product::create([
             'product_id' => $filesHandler->getProductId(),
             'product_title' => request('product_title'),
-            'phone_number' => request('phone_number'),
             'user_id' => $user_id,
             'cactus_type' => request('cactus_type'),
             'quantity' => request('available_quantity'),

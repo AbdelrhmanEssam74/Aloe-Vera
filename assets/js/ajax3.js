@@ -1,10 +1,11 @@
 $(document).ready(function () {
   // Function to fetch products for a given page
   var currentPage = 1; // Initialize current page to 1
-
+  var filter = null;
+  var amount = 0;
   function fetchProducts(page = 1, filter = "null") {
-    const host = "https://bisque-parrot-667884.hostingersite.com/";
-    // const host = "http://localhost:800/";
+    // const host = "https://bisque-parrot-667884.hostingersite.com/";
+    const host = "http://localhost:800/";
 
     $.ajax({
       url: host + "products/p/" + page + "/" + filter,
@@ -46,6 +47,13 @@ $(document).ready(function () {
     $("#product-parent-container").append(alert);
   }
 
+  // Filter products
+  $(".filter-container").on("click", function (e) {
+    e.preventDefault();
+    const target = $(e.target); // Convert e.target to a jQuery object
+    filter = target.data("filter");
+    fetchProducts(currentPage, target.data("filter"));
+  });
   // Function to update navigation buttons
   function updateNavigationButtons(currentPage, totalItems) {
     const navContainer = $(".pagination");
@@ -59,10 +67,9 @@ $(document).ready(function () {
         </button>
     `;
     let count = $("#product-parent-container").children().length;
-
     const nextButton = `
         <button class="btn btn-primary" id="next-button" ${
-          count <= 5 ? "disabled" : ""
+          count < 6 ? "disabled" : ""
         }>
             Next
         </button>
@@ -74,26 +81,91 @@ $(document).ready(function () {
     $("#prev-button").on("click", function () {
       if (currentPage > 1) {
         currentPage--;
-        fetchProducts(currentPage);
+        fetchProducts(currentPage, filter);
+        console.log(filter);
       }
     });
 
     $("#next-button").on("click", function () {
       currentPage++;
-      fetchProducts(currentPage);
+      fetchProducts(currentPage, filter);
     });
   }
-
-  // Filter products
-  $(".filter-container").on("click", function (e) {
-    e.preventDefault();
-    const target = $(e.target); // Convert e.target to a jQuery object
-    fetchProducts(currentPage, target.data("filter"));
-  });
 
   // Initial fetch to load the first page
   fetchProducts(1);
 
+  ///////////////////////////////////////////////////////
+  //!SECTION Add to cart list
+  // Add event listeners for increase and decrease buttons
+  //NOTE - Cart button
+  // Use jQuery to attach a click event listener to buttons with the class "cart-btn"
+  // Initialize cart as an array
+  let cart = [];
+// Handle the increase button click
+  $(document).on("click", ".amount-increase-btn", function () {
+    // Get the current amount display
+    const amountDisplay = $(this).siblings(".amount-display");
+    let amount = parseInt(amountDisplay.text());
+
+    // Increase the amount and update the display
+    amount++;
+    amountDisplay.text(amount);
+
+    // Enable the Add to Cart button if the amount is greater than 0
+    $(this).parent().siblings(".cart-btn").prop("disabled", amount === 0);
+  });
+
+  // Handle the decrease button click
+  $(document).on("click", ".amount-decrease-btn", function () {
+    // Get the current amount display
+    const amountDisplay = $(this).siblings(".amount-display");
+    let amount = parseInt(amountDisplay.text());
+
+    // Decrease the amount (ensure it doesn't go below 0)
+    if (amount > 0) {
+      amount--;
+    }
+    amountDisplay.text(amount);
+
+    // Disable the Add to Cart button if the amount is 0
+    $(this).parent().siblings(".cart-btn").prop("disabled", amount === 0);
+  });
+
+  // Handle the Add to Cart button click
+  $(document).on("click", ".cart-btn", function () {
+    const productId = $(this).data("product_id");
+    const userId = $(this).data("user_id");
+    const amount = parseInt($(this).siblings(".d-flex").find(".amount-display").text());
+
+    if (amount > 0) {
+      // Check if the product is already in the cart
+      const existingProduct = cart.find(item => item.product_id === productId);
+
+      if (existingProduct) {
+        // Update the quantity of the existing product
+        existingProduct.quantity += amount;
+      } else {
+        // Add a new product to the cart
+        cart.push({
+          product_id: productId,
+          user_id: userId,
+          quantity: amount,
+        });
+      }
+
+      // Optionally log the cart for debugging
+      console.log("Updated cart:", cart);
+
+      // Reset the amount display to 0 for the current product
+      $(this).siblings(".d-flex").find(".amount-display").text(0);
+
+      // Disable the Add to Cart button again
+      $(this).prop("disabled", true);
+    } else {
+      alert("Please select at least one item to add to the cart.");
+    }
+  });
   // Function to create product element
   function createProductElement(product) {
     // Create the div with class 'col'
@@ -171,16 +243,46 @@ $(document).ready(function () {
       $("<p>").html(`<strong>Price Per Kilogram:</strong> EGP ${product.price}`)
     );
 
-    // Add the button to card-body
-    cardBody.append(
-      $("<button>", {
-        class: "btn btn-primary w-fit",
-      }).append(
-        $(
-          '<i class="fa-solid fa-cart-shopping"></i> <i class="fa-solid fa-plus"></i>'
-        )
+    // Initial value of the amount
+
+    // Add the buttons to card-body
+    cardBody
+      .append(
+        $("<div>", {
+          class: "d-flex align-items-center justify-content-between w-100",
+        })
+          .append(
+            // Decrease button
+            $("<button>", {
+              class: "btn btn-danger amount-decrease-btn",
+              type: "button",
+            }).text("-")
+          )
+          .append(
+            // Amount display
+            $("<span>", {
+              class: "amount-display mx-2",
+              text: amount,
+            })
+          )
+          .append(
+            // Increase button
+            $("<button>", {
+              class: "btn btn-success amount-increase-btn",
+              type: "button",
+            }).text("+")
+          )
       )
-    );
+      .append(
+        // Add to Cart button
+        $("<button>", {
+          class: "btn btn-primary mt-2 w-100 cart-btn",
+          "data-product_id": product.product_id,
+          "data-user_id": product.user_id,
+          type: "button",
+          disabled: true, // Initially disabled because amount is 0
+        }).text("Add to Cart")
+      );
 
     // Append card-body to cardDiv
     cardDiv.append(cardBody);
@@ -191,11 +293,4 @@ $(document).ready(function () {
     // Append the colDiv to a parent container (e.g., a row or a specific div)
     $("#product-parent-container").append(colDiv);
   }
-
-  // Fetch products when document is ready
-  fetchProducts();
-
-  ///////////////////////////////////////////////////////
-  //!SECTION Add to cart list
-  
 });
