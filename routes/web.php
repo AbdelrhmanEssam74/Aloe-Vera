@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\CartController;
 use App\Controllers\CategoriesController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
@@ -21,4 +22,6 @@ Route::get('/user/settings', [UserController::class, 'settings']);
 Route::get('/categories/aloe-vera-farmers', [CategoriesController::class, 'aloe_vera_farmers']);
 Route::get('/categories/buy-aloe-vera-leaves', [CategoriesController::class, 'buy_aloe_vera']);
 Route::post('/categories/farmers-upload', [CategoriesController::class, 'farmers_upload']);
-Route::get('/products/p', [ProductsController::class, 'p']);
+Route::get('/products/page', [ProductsController::class, 'page']);
+Route::post('/cart/add', [CartController::class, 'add']);
+Route::get('/cart/items', [CartController::class, 'items']);

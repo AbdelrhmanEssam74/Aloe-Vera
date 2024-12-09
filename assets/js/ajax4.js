@@ -3,12 +3,11 @@ $(document).ready(function () {
   var currentPage = 1; // Initialize current page to 1
   var filter = null;
   var amount = 0;
+  // const host = "https://bisque-parrot-667884.hostingersite.com/";
+  const host = "http://localhost:800/";
   function fetchProducts(page = 1, filter = "null") {
-    // const host = "https://bisque-parrot-667884.hostingersite.com/";
-    const host = "http://localhost:800/";
-
     $.ajax({
-      url: host + "products/p/" + page + "/" + filter,
+      url: host + "products/page/" + page + "/" + filter,
       method: "GET",
       success: function (data) {
         if (data && data.length > 0) {
@@ -102,7 +101,7 @@ $(document).ready(function () {
   // Use jQuery to attach a click event listener to buttons with the class "cart-btn"
   // Initialize cart as an array
   let cart = [];
-// Handle the increase button click
+  // Handle the increase button click
   $(document).on("click", ".amount-increase-btn", function () {
     // Get the current amount display
     const amountDisplay = $(this).siblings(".amount-display");
@@ -113,7 +112,10 @@ $(document).ready(function () {
     amountDisplay.text(amount);
 
     // Enable the Add to Cart button if the amount is greater than 0
-    $(this).parent().siblings(".cart-btn").prop("disabled", amount === 0);
+    $(this)
+      .parent()
+      .siblings(".cart-btn")
+      .prop("disabled", amount === 0);
   });
 
   // Handle the decrease button click
@@ -129,18 +131,24 @@ $(document).ready(function () {
     amountDisplay.text(amount);
 
     // Disable the Add to Cart button if the amount is 0
-    $(this).parent().siblings(".cart-btn").prop("disabled", amount === 0);
+    $(this)
+      .parent()
+      .siblings(".cart-btn")
+      .prop("disabled", amount === 0);
   });
 
   // Handle the Add to Cart button click
   $(document).on("click", ".cart-btn", function () {
     const productId = $(this).data("product_id");
     const userId = $(this).data("user_id");
-    const amount = parseInt($(this).siblings(".d-flex").find(".amount-display").text());
-
+    const amount = parseInt(
+      $(this).siblings(".d-flex").find(".amount-display").text()
+    );
     if (amount > 0) {
       // Check if the product is already in the cart
-      const existingProduct = cart.find(item => item.product_id === productId);
+      const existingProduct = cart.find(
+        (item) => item.product_id === productId
+      );
 
       if (existingProduct) {
         // Update the quantity of the existing product
@@ -165,7 +173,105 @@ $(document).ready(function () {
     } else {
       alert("Please select at least one item to add to the cart.");
     }
+    
+    // send ajax  request to add to cart
+    $.ajax({
+      url: host + "cart/add",
+      method: "POST",
+      data: {
+        data: cart,
+      },
+      success: function (data) {
+        console.log(data);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR, textStatus, errorThrown);
+      },
+    });
   });
+  // NOTE - get cart from database
+  $(".cart-icon").on("click", function () {
+    $.ajax({
+      url: host + "cart/items", // Replace 'host' with the actual base URL if needed
+      method: "GET",
+      success: function (data) {
+        let count = data.length;
+        console.log(count);
+        
+        populateCart(data);
+      },
+      error: function (jqXHR, textStatus, error) {
+        console.error("Error fetching cart items:", error);
+      },
+    });
+  });
+
+  // Function to append cart items to the offcanvas body
+
+  function populateCart(cartItems) {
+    const container = $(".offcanvas-body");
+
+    // Clear existing content
+    container.empty();
+
+    // Append each item as a card
+    cartItems.forEach((item) => {
+      const itemRow = document.createElement("div");
+      itemRow.className = "cart-item row mb-3 p-3 border rounded";
+      itemRow.setAttribute("data-product_id", item.product_id);
+      let img_url = item.images.split("|")[0];
+
+      itemRow.innerHTML = `
+        <div class="col-4 text-center">
+          <img src="/${img_url}" alt="${
+        item.product_title
+      }" class="img-fluid rounded" style="max-height: 100px;">
+        </div>
+        <div class="col-8">
+          <div class="d-flex justify-content-between">
+            <strong class="fs-5">${item.product_title}</strong>
+          </div>
+                      <span class="text-muted">Price: ${parseFloat(
+                        item.price
+                      ).toFixed(2)} ₤</span>
+          <p class="mb-1">Quantity: ${item.order_quantity}</p>
+          <p><strong>Total:</strong> ${(
+            parseFloat(item.order_quantity) * parseFloat(item.price)
+          ).toFixed(2)} ₤</p>
+          <button class="btn btn-danger btn-sm remove-item" data-product_id="${
+            item.product_id
+          }">Remove</button>
+        </div>
+      `;
+
+      container.append(itemRow);
+    });
+
+    // Add event listener for remove buttons
+    container.on("click", ".remove-item", function () {
+      const productId = $(this).data("product_id");
+
+      // Remove the item from the DOM
+      $(this).closest(".cart-item").remove();
+
+      // Send AJAX request to the server to delete the item
+      $.ajax({
+        url: "/remove-from-cart", // Adjust the endpoint as needed
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ product_id: productId }),
+        success: function (response) {
+          console.log("Item removed successfully", response);
+          // Optionally, update cart summary or display a success message
+        },
+        error: function (xhr, status, error) {
+          console.error("Failed to remove item", error);
+          // Optionally, display an error message
+        },
+      });
+    });
+  }
+
   // Function to create product element
   function createProductElement(product) {
     // Create the div with class 'col'

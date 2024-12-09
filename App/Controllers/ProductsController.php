@@ -10,7 +10,7 @@ class ProductsController
     /**
      * Display a list of products in JSON format.
      */
-    public function p($page, $filter): void
+    public function page($page, $filter): void
     {
 //        echo $filter;
         $response = new Response();
