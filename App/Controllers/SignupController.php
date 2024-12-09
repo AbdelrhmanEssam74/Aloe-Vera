@@ -42,6 +42,6 @@ class SignupController
             'phone_number' => request('phone_number'),
         ]);
         app()->session->setFlash('success', 'Registered successfully Now You Can Login With Your Email Address');
-        return RedirectToView('login');
+        return RedirectToView('/login');
     }
 }
