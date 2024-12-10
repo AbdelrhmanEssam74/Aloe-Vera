@@ -79,7 +79,7 @@ let map, marker;
 // Initialize the map
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 29.0706792, lng: 31.0987647 }, // Default center
+        center: {lat: 29.0706792, lng: 31.0987647}, // Default center
         zoom: 18,
     });
 
@@ -116,9 +116,9 @@ function initMap() {
 // Get address from latitude and longitude
 function getAddress(lat, lng) {
     const geocoder = new google.maps.Geocoder();
-    const latLng = { lat: lat, lng: lng };
+    const latLng = {lat: lat, lng: lng};
 
-    geocoder.geocode({ location: latLng }, (results, status) => {
+    geocoder.geocode({location: latLng}, (results, status) => {
         if (status === "OK" && results[0]) {
             $("#address").val(results[0].formatted_address);
         } else {
@@ -131,7 +131,7 @@ function getAddress(lat, lng) {
 function getLocationFromAddress(address) {
     const geocoder = new google.maps.Geocoder();
 
-    geocoder.geocode({ address: address }, (results, status) => {
+    geocoder.geocode({address: address}, (results, status) => {
         if (status === "OK" && results[0]) {
             const location = results[0].geometry.location;
 
@@ -160,17 +160,19 @@ function getLocationFromAddress(address) {
 // Load the map
 $(document).ready(initMap);
 
-$(document).ready(function() {
-    $('#AvailableQuantity').on('input', function() {
+$(document).ready(function () {
+    $('#AvailableQuantity').on('input', function () {
         // Remove non-numeric and negative values
         this.value = this.value.replace(/[^0-9]/g, '');
     });
-    $('#price').on('input', function() {
+    $('#price').on('input', function () {
         // Allow numbers and at most one decimal point
         this.value = this.value.replace(/[^0-9.]/g, ''); // Remove non-numeric and non-dot characters
     });
-    $('#phone_number').on('input', function() {
+    $('#phone_number').on('input', function () {
         // Remove non-numeric and negative values
         this.value = this.value.replace(/[^0-9]/g, '');
     });
 });
+
+
