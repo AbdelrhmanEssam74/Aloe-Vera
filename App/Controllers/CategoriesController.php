@@ -11,15 +11,8 @@ class CategoriesController
 {
     public function aloe_vera_farmers()
     {
-        $user_id = !empty(app()->session->get('user_id')) ? app()->session->get('user_id') : null;
-        $userData = app()->db->row("SELECT * FROM `users` WHERE user_id = ?", [$user_id]);
-        if ($userData):
-            $date = [
-                'full_name' => $userData[0]->full_name,
-                'phone_number' => $userData[0]->phone_number,
-            ];
-            return View::makeView("categories.aloe_vera_farmers", $date);
-
+        if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar"):
+            return View::makeView("ar.categories.aloe_vera_farmers");
         else:
             return View::makeView("categories.aloe_vera_farmers");
         endif;
@@ -64,6 +57,11 @@ class CategoriesController
 
     public function buy_aloe_vera(): null
     {
-        return View::makeView('categories.buy_aloe_vera_leaves');
+        if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar"):
+            return View::makeView('ar.categories.buy_aloe_vera_leaves');
+        else:
+            return View::makeView('categories.buy_aloe_vera_leaves');
+        endif;
+
     }
 }

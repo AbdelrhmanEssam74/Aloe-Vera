@@ -11,7 +11,10 @@ class SignupController
 {
     public function index(): null
     {
-        return View::makeView("auth.signup");
+        if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar")
+            return View::makeView("ar.auth.signup");
+        else
+            return View::makeView("auth.signup");
     }
 
     public function store()

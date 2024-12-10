@@ -27,3 +27,4 @@ Route::post('/cart/add', [CartController::class, 'add']);
 Route::get('/cart/items', [CartController::class, 'items']);
 Route::get('/cart/count', [CartController::class, 'count']);
 Route::get('/cart/delete', [CartController::class, 'delete']);
+Route::get('/ar', [HomeController::class, 'ar']);

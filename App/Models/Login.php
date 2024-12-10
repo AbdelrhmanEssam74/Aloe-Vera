@@ -14,10 +14,12 @@ class Login extends Model
         self::$instance = static::class;
         return app()->db->create($data);
     }
+
     public static function logout()
     {
         session_unset();
         session_destroy();
-        RedirectToView('login');
+        RedirectToView('/login');
+
     }
 }

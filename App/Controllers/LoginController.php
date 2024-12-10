@@ -9,9 +9,13 @@ use PROJECT\View\View;
 
 class LoginController
 {
-    public function index(): void
+    public function index()
     {
-        View::makeView('auth.login');
+        if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar")
+            return View::makeView('ar.auth.login');
+        else
+            return View::makeView('auth.login');
+
     }
 
     /**
@@ -57,7 +61,11 @@ class LoginController
             'email' => $user_data[0]->email,
             'password' => $user_data[0]->password,
         ]);
-        return RedirectToView('/');
+        if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar")
+            return RedirectToView('/ar');
+        else
+            return RedirectToView('/');
+
     }
 
     public function logout(): void
