@@ -1069,3 +1069,25 @@ textarea {
     font-size: 25px;
     cursor: pointer;
 }
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
+}
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2/2;
+}
+.product-info {
+    margin-top: 15px;
+}

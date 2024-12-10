@@ -31,7 +31,7 @@
                     <div class="dropdown">
                         <img src="/assets/images/default-avatar.png" width="30" class="profile-pic-nav rounded-circle">
                         <div class="dropdown-menu">
-                            <a href="/user/settings"><i class="fa-solid fa-gear"></i> الإعدادات</a>
+<!--                            <a href="/user/settings"><i class="fa-solid fa-gear"></i> الإعدادات</a>-->
                             <hr>
                             <a href="/logout" class="text-danger"> <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 تسجيل الخروج</a>
@@ -44,7 +44,7 @@
             <div class="left-section">
                 <div class="nav-links">
                     <a href="/contactUs">تواصل معنا</a>
-                    <a href="ar#categories">الفئات</a>
+                    <a href="/ar#categories">الفئات</a>
                     <a href="/aboutUs">عنا</a>
                     <a href="/ar">الرئيسية</a>
                 </div>
@@ -67,7 +67,7 @@
         <div class="nav-links-mobile">
             <a href="/ar">الرئيسية</a>
             <a href="/aboutUs">عنا</a>
-            <a href="ar/#categories">الفئات</a>
+            <a href="/ar/#categories">الفئات</a>
             <a href="/contactUs">تواصل معنا</a>
         </div>
     </div>

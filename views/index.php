@@ -109,7 +109,6 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Aloe Vera Farmers</h5>
-                    <p class="card-text">lorem</p>
                 </div>
                 <div class="card-footer">
                     <a href="categories/aloe-vera-farmers" class="btn btn-primary">Explore
@@ -123,7 +122,6 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Buy Aloe Vera Leaves</h5>
-                    <p class="card-text">lorem</p>
                 </div>
                 <div class="card-footer">
                     <a  href="categories/buy-aloe-vera-leaves" class=" buy-aloe-vera btn btn-primary">Explore
@@ -137,7 +135,6 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Buy Aloe Vera Extract</h5>
-                    <p class="card-text">lorem</p>
                 </div>
                 <div class="card-footer">
                     <a href="categories/buy-aloe-vera-extract" class="btn btn-primary">Explore
@@ -151,7 +148,6 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">Aloe Vera Benefits</h5>
-                    <p class="card-text">lorem</p>
                 </div>
                 <div class="card-footer">
                     <a href="categories/aloe-vera-benefits" class="btn btn-primary">Explore

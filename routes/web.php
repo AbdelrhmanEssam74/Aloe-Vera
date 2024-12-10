@@ -21,6 +21,8 @@ Route::get('/user/profile', [UserController::class, 'profile']);
 Route::get('/user/settings', [UserController::class, 'settings']);
 Route::get('/categories/aloe-vera-farmers', [CategoriesController::class, 'aloe_vera_farmers']);
 Route::get('/categories/buy-aloe-vera-leaves', [CategoriesController::class, 'buy_aloe_vera']);
+Route::get('/categories/buy-aloe-vera-extract', [CategoriesController::class, 'buy_aloe_vera_extract']);
+Route::get('/categories/aloe-vera-benefits', [CategoriesController::class, 'aloe_vera_benefits']);
 Route::post('/categories/farmers-upload', [CategoriesController::class, 'farmers_upload']);
 Route::get('/products/page', [ProductsController::class, 'page']);
 Route::post('/cart/add', [CartController::class, 'add']);

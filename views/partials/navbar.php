@@ -45,7 +45,7 @@
           <div class="dropdown-menu">
 <!--            <a href="/user/profile/--><?php //= app()->session->get('user_id') ?><!--"><i class="fa-solid fa-user"></i>-->
 <!--              Profile</a>-->
-            <a href="/user/settings"><i class="fa-solid fa-gear"></i> Settings</a>
+<!--            <a href="/user/settings"><i class="fa-solid fa-gear"></i> Settings</a>-->
             <hr>
             <a href="/logout" class="text-danger"> <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Logout</a>

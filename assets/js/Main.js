@@ -175,4 +175,9 @@ $(document).ready(function () {
     });
 });
 
-
+// Optional: Auto-slide functionality for the carousel
+var carouselElement = document.querySelector('#productImages');
+var carousel = new bootstrap.Carousel(carouselElement, {
+    interval: 3000, // Change image every 3 seconds
+    ride: 'carousel'
+});
