@@ -35,7 +35,7 @@ if (isset($_COOKIE['lng']) && $_COOKIE['lng'] === 'ar') {
         integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/assets/js/Main.js"></script>
-<script src="/assets/js/ajax01.js"></script>
+<script src="/assets/js/Ajax.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFHz-7hKCyzYx2kWfY-S_kSi6Hm8pZ8jk"></script>
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
