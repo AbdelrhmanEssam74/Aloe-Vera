@@ -66,7 +66,7 @@
                     </div>
                     <div class="product-info">
                         <h5>Product Title</h5>
-                        <p class="text-muted">EGP 29.99</p>
+                        <p class="text-muted">EGP 200 per 250ml</p>
                         <div class="mb-2">
                             <label for="quantity">Quantity:</label>
                             <input type="number" id="quantity" name="quantity" min="1" value="1" class="form-control w-50 d-inline">
