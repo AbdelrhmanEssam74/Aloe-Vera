@@ -9,7 +9,7 @@ use PROJECT\HTTP\Request;
 
 class SignupController
 {
-    public function index(): null
+    public function index()
     {
         if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar")
             return View::makeView("ar.auth.signup");
@@ -45,6 +45,6 @@ class SignupController
             'phone_number' => request('phone_number'),
         ]);
         app()->session->setFlash('success', 'Registered successfully Now You Can Login With Your Email Address');
-        return RedirectToView('/login');
+        return RedirectToView('login');
     }
 }
