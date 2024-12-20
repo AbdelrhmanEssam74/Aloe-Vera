@@ -58,7 +58,8 @@ class LoginController
       app()->session->set('email', $userData['email']);
       app()->session->set('login', true);
       app()->session->set('user_id', $userData['user_id']);
-      return RedirectToView("user/profile/" . $userData['user_id']);
+      // return RedirectToView("user/profile/" . $userData['user_id']);
+      return RedirectToView("/");
     } else {
       // Invalid token
       $response = new Response();
