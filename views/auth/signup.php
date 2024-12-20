@@ -1,196 +1,176 @@
-<?php
-// check if the user logged in and if so redirect to profile page
-if (!empty(app()->session->get('login')) && app()->session->get('login') === true) {
-    RedirectToView('user/profile/' . app()->session->get('user_id'));
-}
-?>
 <section class="p-3 p-md-4 p-xl-5 login-section">
-    <img src="/assets/images/item3.png" class="login-section-img" alt="">
-    <div class="container position-relative">
-        <img src="/assets/images/leaves1.png" class="card-login-img" alt="">
-        <div class="card border-light-subtle shadow-sm ">
-            <div class="row g-0 p-2">
-                <div class="col-12 col-md-6">
-                    <div class="card-body p-3 p-md-4 p-xl-5">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mb-5">
-                                    <h3 class="login-header text-center display-6 fw-medium">Create Now Account And
-                                        Join
-                                        Us</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <form action="/store" method="post">
-                            <div class="row gy-3 gy-md-4 overflow-hidden">
-                                <div class="col-12 position-relative">
-                                    <label for="full_name" class="form-label">Full Name <span
-                                                class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="full_name" id="full_name"
-                                           placeholder="Enter Your Full Name"
-                                           value="<?= (!empty(app()->session->getFlash('old')['full_name']) ? app()->session->getFlash('old')['full_name'] : '') ?>">
-                                    <div class="errorHelp">
-                                        <?php
-                                        if (!empty(app()->session->getFlash('errors')['full_name'])):
-                                            echo "<p  class=' text-danger form-text'>*" .
-                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['full_name'][0]))
-                                                . "</p>";
-                                        endif;
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="col-12 position-relative">
-                                    <label for="username" class="form-label">Username <span
-                                                class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="username" id="username"
-                                           placeholder="Enter Your Username"
-                                           value="<?= (!empty(app()->session->getFlash('old')['username']) ? app()->session->getFlash('old')['username'] : '') ?>">
-                                    <div class="errorHelp">
-                                        <?php
-                                        if (!empty(app()->session->getFlash('errors')['username'])):
-                                            echo "<p  class=' text-danger form-text'>*" .
-                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['username'][0]))
-                                                . "</p>";
-                                        endif;
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="col-12 position-relative">
-                                    <label for="email" class="form-label">Email <span
-                                                class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                           placeholder="name@example.com"
-                                           value="<?= (!empty(app()->session->getFlash('old')['email']) ? app()->session->getFlash('old')['email'] : '') ?>">
-                                    <div class="errorHelp">
-                                        <?php
-                                        if (!empty(app()->session->getFlash('errors')['email'])):
-                                            echo "<p  class=' text-danger form-text'>*" .
-                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['email'][0]))
-                                                . "</p>";
-                                        endif;
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-3 position-relative">
-                                    <label for="email" class="form-label">Phone Number <span
-                                                class="text-danger">*</span></label>
-                                    <input type="tel" class="form-control" name="phone_number" id="phone_number"
-                                           placeholder="+20 "
-                                           value="<?= (!empty(app()->session->getFlash('old')['phone_number']) ? app()->session->getFlash('old')['phone_number'] : '') ?>">
-                                    <div class="errorHelp">
-                                        <?php
-                                        if (!empty(app()->session->getFlash('errors')['phone_number'])):
-                                            echo "<p  class=' text-danger form-text'>*" .
-                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['phone_number'][0]))
-                                                . "</p>";
-                                        endif;
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class=" mt-4 col-12 col-md-12">
-                                    <div id="map" class="mb-4"></div>
-                                    <input type="text" id="latitude" readonly hidden>
-                                    <input type="text" id="longitude" readonly hidden>
-                                    <div class="form-control">
-                                        <label for="address">Pick Your Location or Add Your Address:</label>
-                                        <input type="text" class="form-control" name="address" id="address"
-                                               placeholder="Enter your address">
-                                        <div class="errorHelp mt-1">
-                                            <?php
-                                            if (!empty(app()->session->getFlash('errors')['address'])):
-                                                echo "<p  class=' text-danger form-text'>*" .
-                                                    ucwords(str_replace('_', " ", app()->session->getFlash('errors')['address'][0]))
-                                                    . "</p>";
-                                            endif;
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-4 position-relative">
-                                    <label for="password" class="form-label">Password <span
-                                                class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password" id="password"
-                                           value=""
-                                    >
-                                    <div class="errorHelp">
-                                        <?php
-                                        if (!empty(app()->session->getFlash('errors')['password'])):
-                                            echo "<p  class=' text-danger form-text'>*" .
-                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['password'][0]))
-                                                . "</p>";
-                                        endif;
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-4 position-relative">
-                                    <label for="password" class="form-label">Confirm Password <span
-                                                class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password_confirmation"
-                                           id="password_confirmation" value=""
-                                    >
-                                    <div class="errorHelp">
-                                        <?php
-                                        if (!empty(app()->session->getFlash('errors')['password_confirmation'])):
-                                            echo "<p  class=' text-danger form-text'>*" .
-                                                ucwords(str_replace('_', " ", app()->session->getFlash('errors')['password_confirmation'][0]))
-                                                . "</p>";
-                                        endif;
-                                        ?>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-grid">
-                                        <button class="btn bsb-btn-xl btn-primary" type="submit">
-                                            Sign Up
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="row">
-                            <div class="col-12">
-                                <hr class="mt-5 mb-4 border-secondary-subtle">
-                                <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end">
-                                    <a href="/login" class="link-secondary text-decoration-none">Already Have An
-                                        Account</a>
-                                </div>
-                            </div>
-                        </div>
-<!--                        <div class="row">-->
-<!--                            <div class="col-12">-->
-<!--                                <p class="mt-5 mb-4">Or sign in with</p>-->
-<!--                                <div class="d-flex gap-3 flex-column flex-xl-row">-->
-<!--                                    <a href="#!" class="btn bsb-btn-xl btn-outline-primary">-->
-<!--                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"-->
-<!--                                             fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">-->
-<!--                                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>-->
-<!--                                        </svg>-->
-<!--                                        <span class="ms-2 fs-6">Google</span>-->
-<!--                                    </a>-->
-<!--                                    <a href="#!" class="btn bsb-btn-xl btn-outline-primary">-->
-<!--                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"-->
-<!--                                             fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">-->
-<!--                                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>-->
-<!--                                        </svg>-->
-<!--                                        <span class="ms-2 fs-6">Facebook</span>-->
-<!--                                    </a>-->
-<!--                                    <a href="#!" class="btn bsb-btn-xl btn-outline-primary">-->
-<!--                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"-->
-<!--                                             fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">-->
-<!--                                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>-->
-<!--                                        </svg>-->
-<!--                                        <span class="ms-2 fs-6">Twitter</span>-->
-<!--                                    </a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-                    </div>
+  <img src="/assets/images/item3.png" class="login-section-img" alt="">
+  <div class="container position-relative">
+    <img src="/assets/images/leaves1.png" class="card-login-img" alt="">
+    <div class="card border-light-subtle shadow-sm rounded">
+      <div class="row g-0 p-2">
+        <div class="col-12 col-md-6">
+          <div class="card-body p-3 p-md-4 p-xl-5">
+            <div class="row">
+              <div class="col-12">
+                <div class="mb-5">
+                  <h3 class="login-header text-center display-6 fw-medium">Create an Account and Join Us</h3>
                 </div>
-                <div class="col-12 col-md-6 login-img rounded">
-                    <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy"
-                         src="/assets/images/bg.jpg" alt="BootstrapBrain Logo">
-                </div>
+              </div>
             </div>
+            <form method="post" action="/store" novalidate>
+              <!-- CSRF Token -->
+              <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrf_token); ?>">
+              <div class="row gy-3 gy-md-4 overflow-hidden">
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label for="full_name" class="form-label">Full Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input
+                      type="text"
+                      class="form-control <?= app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['full_name']) ? 'is-invalid' : ''; ?>"
+                      id="full_name"
+                      name="full_name"
+                      placeholder="Enter your full name"
+                      value="<?= old('full_name') ?? ''; ?>">
+                    <?php if (app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['full_name'])): ?>
+                      <div class="invalid-feedback">
+                        <?= app()->session->getFlash('errors')['full_name'][0]; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <!-- Username -->
+                <div class="form-group">
+                  <label for="username" class="form-label">Username</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                    <input
+                      type="text"
+                      class="form-control <?= app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['username']) ? 'is-invalid' : ''; ?>"
+                      id="username"
+                      name="username"
+                      placeholder="Enter a username"
+                      value="<?= old('username') ?? ''; ?>">
+                    <?php if (app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['username'])): ?>
+                      <div class="invalid-feedback">
+                        <?= app()->session->getFlash('errors')['username'][0]; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input
+                      type="email"
+                      class="form-control <?= app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['email']) ? 'is-invalid' : ''; ?>"
+                      id="email"
+                      name="email"
+                      placeholder="Enter your email address"
+                      value="<?= old('email') ?? ''; ?>">
+                    <?php if (app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['email'])): ?>
+                      <div class="invalid-feedback">
+                        <?= app()->session->getFlash('errors')['email'][0]; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <!-- Phone Number -->
+                <div class="form-group">
+                  <label for="phone_number" class="form-label">Phone Number</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                    <input
+                      type="tel"
+                      class="form-control <?= app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['phone_number']) ? 'is-invalid' : ''; ?>"
+                      name="phone_number"
+                      id="phone_number"
+                      placeholder="+20"
+                      value="<?= old('phone_number') ?>">
+                    <?php if (app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['phone_number'])): ?>
+                      <div class="invalid-feedback">
+                        <?= app()->session->getFlash('errors')['phone_number'][0]; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <!-- Address -->
+                <div class="form-group">
+                  <div id="map" class="mb-4"></div>
+                  <input type="text" id="latitude" readonly hidden>
+                  <input type="text" id="longitude" readonly hidden>
+                  <label for="address" class="form-label">Address</label>
+                  <input
+                    type="text"
+                    class="form-control <?= app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['address']) ? 'is-invalid' : ''; ?>"
+                    name="address"
+                    id="address"
+                    placeholder="Enter your address"
+                    value="<?= old('address') ?>">
+                  <?php if (app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['address'])): ?>
+                    <div class="invalid-feedback">
+                      <?= app()->session->getFlash('errors')['address'][0]; ?>
+                    </div>
+                  <?php endif; ?>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                  <label for="password" class="form-label">Password</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input
+                      type="password"
+                      class="form-control <?= app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['password']) ? 'is-invalid' : ''; ?>"
+                      id="password"
+                      name="password"
+                      placeholder="Enter a password">
+                    <?php if (app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['password'])): ?>
+                      <div class="invalid-feedback">
+                        <?= app()->session->getFlash('errors')['password'][0]; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <!-- Confirm Password -->
+                <div class="form-group">
+                  <label for="confirm-password" class="form-label">Confirm Password</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                    <input
+                      type="password"
+                      class="form-control <?= app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['password_confirmation']) ? 'is-invalid' : ''; ?>"
+                      id="confirm-password"
+                      name="password_confirmation"
+                      placeholder="Confirm your password">
+                    <?php if (app()->session->hasFlash('errors') && isset(app()->session->getFlash('errors')['password_confirmation'])): ?>
+                      <div class="invalid-feedback">
+                        <?= app()->session->getFlash('errors')['password_confirmation'][0]; ?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <!-- Submit Button -->
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col-12">
+                <hr class="mt-5 mb-4 border-secondary-subtle">
+                <div class="d-flex gap-2 justify-content-end">
+                  <a href="/login" class="link-secondary text-decoration-none">Already have an account?</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="col-12 col-md-6 login-img rounded">
+          <img class="img-fluid rounded-start w-100 h-100 object-fit-cover" loading="lazy"
+            src="/assets/images/bg.jpg" alt="Sign Up">
+        </div>
+      </div>
     </div>
+  </div>
 </section>

@@ -36,19 +36,19 @@ class DB
     return $this->manager->read($columns, $filter);
   }
 
-  protected function update($id, $attributes)
+  protected function update($column, $value, $attributes)
   {
-    return $this->manager->update($id, $attributes);
+    return $this->manager->update($column, $value, $attributes);
   }
 
-  protected function delete($id)
+  protected function delete($column, $value): mixed
   {
-    return $this->manager->delete($id);
+    return $this->manager->delete($column, $value);
   }
 
   public function __call($method, $args)
   {
-      if (method_exists(object_or_class: $this, method: $method)) {
+    if (method_exists($this, $method)) {
       return call_user_func_array([$this, $method], $args);
     }
   }
