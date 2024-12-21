@@ -1,5 +1,9 @@
 <!doctype html>
-<html lang="en">
+<?php
+$translation = app()->languages->get(getLanguage());
+$langCode = getLanguage();
+?>
+<html lang="<?php echo $langCode; ?>" dir="<?php echo $langCode === 'ar' ? 'rtl' : 'ltr'; ?>">
 
 <head>
   <meta charset="utf-8">
@@ -15,15 +19,8 @@
 </head>
 
 <body id="body">
-  <?php
-  if (isset($_COOKIE['lng']) && $_COOKIE['lng'] === 'ar') {
-    include view_path() . 'ar/partials/navbar.php';
-  } else {
-    include view_path() . 'partials/navbar.php';
-  }
-  ?>
-
   <?php include view_path() . 'partials/Back_to_top_button.php' ?>
+  <?php include view_path() . 'partials/navbar.php'; ?>
   <div>
     {{content}}
   </div>

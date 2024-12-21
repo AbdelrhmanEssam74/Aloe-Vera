@@ -1,25 +1,28 @@
 <?php include view_path() . 'partials/ofCanvas.php' ?>
+<?php
+$langCode = getLanguage();
+$dir = ($langCode === 'ar') ? 'rtl' : 'ltr';
+?>
 <!--StartHero Section-->
 <div class="container-fluid  main-section " style="background-image: url('/assets/images/background.jpg');">
     <div class="p-5 mb-4 lc-block col-xxl-7 col-lg-8 col-12 container">
         <div class="lc-block ">
             <div>
-                <h2 class="fw-bolder display-3 col-lg-6 col-md-6 col-sm-6">Aloe Vera Sanctuary</h2>
+                <h2 class="fw-bolder display-3 col-lg-6 col-md-6 col-sm-6"><?= $translation['Hero Title'] ?> </h2>
             </div>
         </div>
         <div class="lc-block col-md-8">
             <div>
                 <p class="lead col-lg-6 col-md-6 col-sm-6">
-                    Discover the power of sustainable aloe vera. From cultivation to
-                    global delivery, we bring you premium extracts.
+                    <?= $translation['Hero Paragraph'] ?>
                 </p>
             </div>
         </div>
         <div class="button-container">
-            <a href="categories/buy-aloe-vera-leaves" class="shop-button">
-                Shop Now
+            <a href="categories/buy-aloe-vera-leaves" class="shop-button" dir="<?= $dir ?>">
+                <?= $translation['Hero Main Button'] ?>
                 <span class="arrow">
-              <i class="fa-solid fa-arrow-right"></i>
+              <i class="fa-solid <?= $langCode === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right' ?>"></i>
             </span>
             </a>
         </div>
@@ -42,7 +45,7 @@
                 <div class="d-flex flex-column gap-6">
                     <div class="d-flex flex-column gap-2">
                         <!--heading-->
-                        <h2 class="mb-4 h1">Aloe Vera for Your Skin, Hair, and Health</h2>
+                        <h2 class="mb-4 h1"><?= $translation['CTA Section Title'] ?></h2>
                     </div>
                     <div class="d-flex flex-column gap-8">
                         <div class="d-flex flex-column gap-5">
@@ -55,8 +58,7 @@
                                 </div>
                                 <!--text-->
                                 <div class="col-md-6 col-lg-10 col-xxl-6 col-10">
-                                    <h4 class="mb-0">Aloe vera soothes, hydrates, and rejuvenates skin, helping with
-                                        sunburns, acne, and irritation.</h4>
+                                    <h4 class="mb-0"><?= $translation['CTA Section item1 text'] ?></h4>
                                 </div>
                             </div>
                             <div class="row gap-xxl-3">
@@ -68,8 +70,7 @@
                                 </div>
                                 <!--text-->
                                 <div class="col-md-6 col-lg-10 col-xxl-6 col-10">
-                                    <h4 class="mb-0">It nourishes the scalp, reduces dandruff, and promotes shiny,
-                                        healthy hair.</h4>
+                                    <h4 class="mb-0"><?= $translation['CTA Section item2 text'] ?></h4>
                                 </div>
                             </div>
                             <div class="row gap-xxl-3">
@@ -81,8 +82,7 @@
                                 </div>
                                 <!--text-->
                                 <div class="col-md-6 col-lg-10 col-xxl-6 col-10">
-                                    <h4 class="mb-0"> Aloe vera aids digestion, boosts immunity, and detoxifies the
-                                        body.</h4>
+                                    <h4 class="mb-0"> <?= $translation['CTA Section item3 text'] ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
     <img src="/assets/images/item1.png" class="category-section-img img2">
     <div class="container">
         <div class="section-header">
-            <h1 class="display-5  fw-medium">Categories</h1>
+            <h1 class="display-5  fw-medium"><?= $translation['Categories Section Title'] ?></h1>
         </div>
         <div class="cards-container">
             <div class="card category-item">
@@ -108,11 +108,11 @@
                     <img src="/assets/images/category1.jpg" class="card-img-top rounded img-4by3-md">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">Aloe Vera Farmers</h5>
+                    <h5 class="card-title"><?= $translation['Categories Section category1 text'] ?></h5>
                 </div>
                 <div class="card-footer">
-                    <a href="categories/aloe-vera-farmers" class="btn btn-primary">Explore
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <a href="categories/aloe-vera-farmers" class="btn btn-primary"><?= $translation['Explore button']?>
+                        <i class="fa-solid <?= $langCode === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right' ?>"></i>
                     </a>
                 </div>
             </div>
@@ -121,11 +121,11 @@
                     <img src="/assets/images/category2.jpg" class="card-img-top rounded img-4by3-md">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">Buy Aloe Vera Leaves</h5>
+                    <h5 class="card-title"><?= $translation['Categories Section category2 text']?></h5>
                 </div>
                 <div class="card-footer">
-                    <a  href="categories/buy-aloe-vera-leaves" class=" buy-aloe-vera btn btn-primary">Explore
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <a href="categories/buy-aloe-vera-leaves" class="btn btn-primary"><?= $translation['Explore button']?>
+                        <i class="fa-solid <?= $langCode === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right' ?>"></i>
                     </a>
                 </div>
             </div>
@@ -134,11 +134,11 @@
                     <img src="/assets/images/category3.jpg" class="card-img-top rounded img-4by3-md">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">Buy Aloe Vera Extract</h5>
+                    <h5 class="card-title"><?= $translation['Categories Section category3 text']?></h5>
                 </div>
                 <div class="card-footer">
-                    <a href="categories/buy-aloe-vera-extract" class="btn btn-primary">Explore
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <a href="categories/buy-aloe-vera-extract" class="btn btn-primary"><?= $translation['Explore button']?>
+                        <i class="fa-solid <?= $langCode === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right' ?>"></i>
                     </a>
                 </div>
             </div>
@@ -147,11 +147,11 @@
                     <img src="/assets/images/category4.jpg" class="card-img-top rounded img-4by3-md">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title">Aloe Vera Benefits</h5>
+                    <h5 class="card-title"><?= $translation['Categories Section category4 text']?></h5>
                 </div>
                 <div class="card-footer">
-                    <a href="categories/aloe-vera-benefits" class="btn btn-primary">Explore
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <a href="categories/aloe-vera-benefits" class="btn btn-primary"><?= $translation['Explore button']?>
+                        <i class="fa-solid <?= $langCode === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right' ?>"></i>
                     </a>
                 </div>
             </div>

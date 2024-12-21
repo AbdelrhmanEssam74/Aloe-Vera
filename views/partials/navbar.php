@@ -7,10 +7,10 @@
         </a>
       </div>
       <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/#categories">Categories</a>
-        <a href="/aboutUs">About</a>
-        <a href="/contactUs">Contact</a>
+        <a href="/"><?= $translation['HomePage Link'] ?></a>
+        <a href="/#categories"><?= $translation['CategoriesPage Link'] ?></a>
+        <a href="/aboutUs"><?= $translation['AboutUsPage Link'] ?></a>
+        <a href="/contactUs"><?= $translation['ContactPage Link'] ?></a>
       </div>
     </div>
     <div class="menu-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
@@ -19,8 +19,8 @@
       <?php
       if (!app()->session->get('login')):
       ?>
-        <a href="/login" class="btn">Login</a>
-        <a href="/signup" class="btn outline register">Sign Up</a>
+        <a href="/login" class="btn"><?= $translation['login'] ?></a>
+        <a href="/signup" class="btn outline register"><?= $translation['register'] ?></a>
       <?php
       endif;
       ?>
@@ -43,9 +43,10 @@
         <div class="dropdown">
           <img src="/assets/images/default-avatar.png" width="30" class="profile-pic-nav rounded-circle">
           <div class="dropdown-menu">
-<!--            <a href="/user/profile/--><?php //= app()->session->get('user_id') ?><!--"><i class="fa-solid fa-user"></i>-->
-<!--              Profile</a>-->
-<!--            <a href="/user/settings"><i class="fa-solid fa-gear"></i> Settings</a>-->
+            <!--            <a href="/user/profile/--><?php //= app()->session->get('user_id') 
+                                                      ?><!--"><i class="fa-solid fa-user"></i>-->
+            <!--              Profile</a>-->
+            <!--            <a href="/user/settings"><i class="fa-solid fa-gear"></i> Settings</a>-->
             <hr>
             <a href="/logout" class="text-danger"> <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Logout</a>
@@ -94,8 +95,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
-          <a class="text-inherit fw-semibold active" href="/">English</a>
-          <a class="text-inherit fw-semibold" href="/ar">العربية</a>
+          <a class="text-inherit fw-semibold active" href="?lang=en">English</a>
+          <a class="text-inherit fw-semibold" href="?lang=ar">العربية</a>
         </div>
       </div>
     </div>
@@ -103,19 +104,19 @@
 </div>
 
 <div id="loginModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Login Required</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>You need to log in to add items to the cart.</p>
-            </div>
-            <div class="modal-footer">
-                <a href="/login" class="btn btn-primary">Login</a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login Required</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>You need to log in to add items to the cart.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="/login" class="btn btn-primary">Login</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
 </div>
