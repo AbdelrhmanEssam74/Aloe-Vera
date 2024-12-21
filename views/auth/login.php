@@ -15,7 +15,7 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
             <div class="row">
               <div class="col-12">
                 <div class="mb-5">
-                  <h3 class="login-header text-center display-5 fw-medium">Welcome Back</h3>
+                  <h3 class="login-header text-center display-5 fw-medium"><?= $translation['login']['title'] ?></h3>
                   <?php
                   if (!empty(app()->session->getFlash('success'))) {
                     echo '<div class="alert alert-success text-center+">' . app()->session->getFlash('success') . '</div>';
@@ -29,13 +29,13 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
               <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrf_token); ?>">
               <!-- Email Field -->
               <div class="form-group mb-3">
-                <label for="email" class="form-label">Email Address</label>
+                <label for="email" class="form-label"><?= $translation['login']['email'] ?></label>
                 <input
                   type="email"
                   class="form-control <?= app()->session->hasFlash('email') ? 'is-invalid' : ''; ?>"
                   id="email"
                   name="email"
-                  placeholder="Enter your email"
+                  placeholder="<?= $translation['login']['email_placeholder'] ?>"
                   value="<?= app()->session->hasFlash('oldEmail') ? app()->session->getFlash('oldEmail') : ''; ?>">
                 <?php if (app()->session->hasFlash('email')): ?>
                   <div class="invalid-feedback">
@@ -46,29 +46,31 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
 
               <!-- Password Field -->
               <div class="form-group mb-4">
-                <label for="password" class="form-label">Password</label>
+                <label for="password" class="form-label"><?= $translation['login']['password'] ?></label>
                 <input
                   type="password"
                   class="form-control <?= app()->session->hasFlash('password') ? 'is-invalid' : ''; ?>"
                   id="password"
                   name="password"
-                  placeholder="Enter your password">
+                  placeholder="<?= $translation['login']['password_placeholder'] ?>">
                 <?php if (app()->session->hasFlash('password')): ?>
                   <div class="invalid-feedback">
                     <?= app()->session->getFlash('password')[0]; ?>
                   </div>
                 <?php endif; ?>
               </div>
-
-              <!-- Submit Button -->
-              <button type="submit" class="btn btn-primary w-100">Login</button>
+              <div class="mb-3 form-check">
+                <input type="checkbox" name="remember_me" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1"><?= $translation['login']['remember'] ?></label>
+              </div>
+            <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100"><?= $translation['login']['login'] ?></button>
             </form>
             <div class="row">
               <div class="col-12">
                 <hr class="mt-5 mb-4 border-secondary-subtle">
                 <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end">
-                  <a href="/signup" class="link-secondary text-decoration-none">Create new
-                    account</a>
+                  <a href="/signup" class="link-secondary text-decoration-none"><?= $translation['login']['create_new_user'] ?></a>
                   <!--                                    <a href="/rest-password" class="link-secondary text-decoration-none">Forgot-->
                   <!--                                        password</a>-->
                 </div>

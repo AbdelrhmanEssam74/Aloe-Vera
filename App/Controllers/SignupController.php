@@ -17,15 +17,12 @@ class SignupController
   public function index()
   {
     $csrfToken = Hash::makeToken(date('Y-m-d H:i:s'));
-    $security = array(
-      'csrf_token' => $csrfToken
+    $data = array(
+      'csrf_token' => $csrfToken,
+      'translation' => app()->languages->get(getLanguage())
     );
-    app()->session->set('csrf_token', $security['csrf_token']);
-    return View::makeView("auth.signup", $security);
-    // if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar")
-    //   return View::makeView("ar.auth.signup");
-    // else
-    //   return View::makeView("auth.signup");
+    app()->session->set('csrf_token', $data['csrf_token']);
+    return View::makeView("auth.signup", $data);
   }
 
   public function store()

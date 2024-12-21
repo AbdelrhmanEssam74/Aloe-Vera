@@ -14,15 +14,12 @@ class LoginController
   public function index()
   {
     $csrfToken = Hash::makeToken(date('Y-m-d H:i:s'));
-    $security = array(
-      'csrf_token' => $csrfToken
+    $data = array(
+      'csrf_token' => $csrfToken,
+      'translation' => app()->languages->get(getLanguage()),
     );
-    app()->session->set('csrf_token', $security['csrf_token']);
-    View::makeView('auth.login', $security);
-    // if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar")
-    //     return View::makeView('ar.auth.login');
-    // else
-    //     return View::makeView('auth.login');
+    app()->session->set('csrf_token', $data['csrf_token']);
+    View::makeView('auth.login', $data);
   }
 
   /**
