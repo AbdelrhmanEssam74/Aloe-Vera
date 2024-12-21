@@ -79,6 +79,37 @@ return [
     'submit' => 'إرسال',
   ],
   // تسجيل الدخول والتسجيل
-  'login' => 'تسجيل الدخول',
-  'register' => 'إنشاء حساب',
+  'login' => [
+    'title' => 'مرحبًا بعودتك',
+    'email' => 'البريد الإلكتروني',
+    'email_placeholder' => 'أدخل البريد الإلكتروني',
+    'password' => 'كلمة المرور',
+    'password_placeholder' => 'أدخل كلمة المرور',
+    'remember' => 'تذكرني',
+    'login' => 'تسجيل الدخول',
+    'create_new_user' => ' انشاء حساب جديد',
+  ],
+  'register' => [
+    'title' => 'قم إنشاء حساب والانضمام إلينا',
+    'full_name' => 'الاسم الكامل',
+    'full_name_placeholder' => 'أدخل الاسم الكامل',
+    'username' => 'اسم المستخدم',
+    'username_placeholder' => 'أدخل اسم المستخدم',
+    'email' => 'البريد الإلكتروني',
+    'email_placeholder' => 'أدخل البريد الإلكتروني',
+    'phone_number' => 'رقم الهاتف',
+    'phone_number_placeholder' => 'أدخل رقم الهاتف',
+    'address' => 'العنوان',
+    'address_placeholder' => 'أدخل العنوان',
+    'password' => 'كلمة المرور',
+    'password_placeholder' => 'أدخل كلمة المرور',
+    'confirm_password' => 'تأكيد كلمة المرور',
+    'confirm_password_placeholder' => 'أدخل كلمة المرور',
+    'register' => 'تسجيل',
+    'have_account' => 'لديك حساب؟',
+  ],
+  'validation' => [
+    'require' => 'مطلوب ولا يمكن أن يكون فارغًا'
+  ],
+
 ];

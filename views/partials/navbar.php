@@ -19,8 +19,8 @@
       <?php
       if (!app()->session->get('login')):
       ?>
-        <a href="/login" class="btn"><?= $translation['login'] ?></a>
-        <a href="/signup" class="btn outline register"><?= $translation['register'] ?></a>
+        <a href="/login" class="btn"><?= $translation['login']['login'] ?></a>
+        <a href="/signup" class="btn outline register"><?= $translation['register']['register'] ?></a>
       <?php
       endif;
       ?>
