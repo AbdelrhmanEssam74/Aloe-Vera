@@ -17,6 +17,15 @@
 html {
     scroll-behavior: smooth;
 }
+body[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+body[dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+}
 
 #body {
     font-family: "Work Sans", sans-serif;
@@ -278,7 +287,7 @@ html {
     color: #fff;
 }
 
-.arrow {
+.shop-button .arrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -291,10 +300,12 @@ html {
     transition: transform 0.3s;
 }
 
-.shop-button:hover .arrow {
+.shop-button[dir='ltr']:hover .arrow {
     transform: translateX(8px);
 }
-
+.shop-button[dir='rtl']:hover .arrow {
+    transform: translateX(-8px);
+}
 .category-section {
     background-color: var(--background-color);
     position: relative;
