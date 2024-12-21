@@ -16,14 +16,16 @@
 
 <div class="container my-5">
   <?php if (!app()->session->get('login')): ?>
-    <div class="position-relative p-5 text-center text-muted bg-white border border-dashed rounded-5 shadow-sm">
-      <i class="fa-solid fa-ban text-danger mb-3" style="font-size:30px"></i>
+    <div class="position-relative p-5 text-center bg-white border border-dashed rounded-5 shadow-sm">
+      <i class="fa-solid fa-ban text-danger mb-3" style="font-size: 30px;"></i>
       <h1 class="text-primary"><?= $translation['aloe_vera_farmers']['not_allowed']['title'] ?></h1>
       <p class="col-lg-6 mx-auto mb-4 text-secondary">
         <?= $translation['aloe_vera_farmers']['not_allowed']['text'] ?>
       </p>
-      <a href="/login" class="btn btn-primary px-5 me-2 mb-2"><?= $translation['login'] ?></a>
-      <a href="/signup" class="btn btn-outline-primary px-5 mb-2"><?= $translation['register'] ?></a>
+      <div>
+        <a href="/login" class="btn btn-primary btn-lg px-4 me-3 mb-2"><?= $translation['login'] ?></a>
+        <a href="/signup" class="btn btn-outline-primary btn-lg px-4 mb-2"><?= $translation['register'] ?></a>
+      </div>
     </div>
   <?php else: ?>
     <div id="farmer-form" class="container p-3">
@@ -33,71 +35,56 @@
         </div>
       <?php endif; ?>
 
-      <div class="card mb-4 shadow-sm">
+      <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
-          <h3 class="mb-0">Fill the Platform</h3>
+          <h3 class="mb-0"><?= $translation['farmer_form']['heading'] ?></h3>
         </div>
         <div class="card-body">
           <form action="/categories/farmers-upload" method="POST" enctype="multipart/form-data" class="row">
             <div class="col-md-12 mb-4">
-              <label for="product_title" class="form-label">Product Title</label>
-              <input type="text" id="product_title" name="product_title" class="form-control" placeholder="Product Title">
-              <div class="errorHelp text-danger">
-                <?= app()->session->getFlash('errors')['product_title'][0] ?? '' ?>
-              </div>
+              <label for="product_title" class="form-label"><?= $translation['farmer_form']['product_title'] ?></label>
+              <input type="text" id="product_title" name="product_title" class="form-control <?= app()->session->getFlash('errors')['product_title'][0] ? 'is-invalid' : ''; ?>" placeholder="<?= $translation['farmer_form']['product_title_placeholder'] ?>">
+              <small class="text-danger"><?= app()->session->getFlash('errors')['product_title'][0] ?? '' ?></small>
             </div>
 
             <div class="col-md-4 mb-4">
-              <label for="cactus_type" class="form-label">Cactus Type</label>
-              <select id="cactus_type" name="cactus_type" class="form-select">
-                <option value="">Select Cactus</option>
-                <option value="medicinal">Medicinal</option>
-                <option value="industrial">Industrial</option>
-                <option value="ornamental">Ornamental</option>
+              <label for="cactus_type" class="form-label"><?= $translation['farmer_form']['cactus_type'] ?></label>
+              <select id="cactus_type" name="cactus_type" class="form-select <?= app()->session->getFlash('errors')['cactus_type'][0] ? 'is-invalid' : ''; ?>">
+                <option value=""><?= $translation['farmer_form']['select_type'] ?></option>
+                <option value="medicinal"><?= $translation['farmer_form']['type1'] ?></option>
+                <option value="industrial"><?= $translation['farmer_form']['type2'] ?></option>
+                <option value="ornamental"><?= $translation['farmer_form']['type3'] ?></option>
               </select>
-              <div class="errorHelp text-danger">
-                <?= app()->session->getFlash('errors')['cactus_type'][0] ?? '' ?>
-              </div>
+              <small class="text-danger"><?= app()->session->getFlash('errors')['cactus_type'][0] ?? '' ?></small>
             </div>
 
             <div class="col-md-4 mb-4">
-              <label for="AvailableQuantity" class="form-label">Available Quantity <span class="small">(Weight or number of cactus units)</span></label>
-              <input type="number" id="AvailableQuantity" name="available_quantity" class="form-control" placeholder="Weight or number of cactus units">
-              <div class="errorHelp text-danger">
-                <?= app()->session->getFlash('errors')['available_quantity'][0] ?? '' ?>
-              </div>
+              <label for="AvailableQuantity" class="form-label"><?= $translation['farmer_form']['available_quantity'] ?> (<small class="small-text"><?= $translation['farmer_form']['weight'] ?></small>)</label>
+              <input type="number" id="AvailableQuantity" name="available_quantity" class="form-control <?= app()->session->getFlash('errors')['available_quantity'][0] ? 'is-invalid' : ''; ?>" placeholder="<?= $translation['farmer_form']['available_quantity_placeholder'] ?>">
+              <small class="text-danger"><?= app()->session->getFlash('errors')['available_quantity'][0] ?? '' ?></small>
             </div>
 
             <div class="col-md-4 mb-4">
-              <label for="price" class="form-label">Price <span class="small">(Price per kilogram or unit)</span></label>
-              <input type="number" id="price" class="form-control" name="price" placeholder="Price per kilogram or unit">
-              <div class="d-flex gap-3 mt-2">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" value="on" name="negligible" id="negligible_on" checked>
-                  <label class="form-check-label" for="negligible_on">Negligible</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" value="off" name="negligible" id="negligible_off">
-                  <label class="form-check-label" for="negligible_off">Non-Negligible</label>
-                </div>
-              </div>
-              <div class="errorHelp text-danger">
-                <?= app()->session->getFlash('errors')['price'][0] ?? '' ?>
-              </div>
+              <label for="price" class="form-label"><?= $translation['farmer_form']['price'] ?>
+                (<small class="small-text"><?= $translation['farmer_form']['price_per'] ?></small>)
+              </label>
+              <input type="number" id="price" name="price" class="form-control <?= app()->session->getFlash('errors')['price'][0] ? 'is-invalid' : ''; ?>" placeholder="<?= $translation['farmer_form']['price_placeholder'] ?>">
+              <small class="text-danger"><?= app()->session->getFlash('errors')['price'][0] ?? '' ?></small>
             </div>
 
             <div class="col-md-12 mb-4">
-              <label for="textarea-input" class="form-label">Additional Details (Optional)</label>
-              <textarea class="form-control" name="additional-details" id="textarea-input" placeholder="Additional Details"></textarea>
+              <label for="textarea-input" class="form-label"><?= $translation['farmer_form']['additional_details'] ?></label>
+              <textarea class="form-control" name="additional-details" id="textarea-input" placeholder="<?= $translation['farmer_form']['additional_details_placeholder'] ?>"></textarea>
             </div>
 
             <div class="col-md-12 mb-4">
-              <label for="imageUpload" class="form-label">Upload Images</label>
+              <label for="imageUpload" class="form-label"><?= $translation['farmer_form']['upload_image'] ?></label>
               <input type="file" class="form-control" multiple accept="image/*" name="images[]" id="imageUpload">
+              <small class="text-danger"><?= app()->session->getFlash('errors')['images'][0] ?? '' ?></small>
             </div>
 
             <div class="col-md-12 text-center">
-              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              <button type="submit" class="btn btn-success btn-lg px-5"><?= $translation['farmer_form']['submit'] ?></button>
             </div>
           </form>
         </div>

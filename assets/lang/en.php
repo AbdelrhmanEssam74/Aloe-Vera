@@ -18,10 +18,10 @@ return [
 
   // Categories Section
   'Categories Section Title' => 'Categories',
-  'Categories Section category1 text' => 'Aloe Vera Benefits',
-  'Categories Section category2 text' => 'Buy Aloe Vera Extract',
-  'Categories Section category3 text' => 'Buy Aloe Vera Leaves',
-  'Categories Section category4 text' => 'Aloe Vera Farmers',
+  'Categories Section category1 text' => 'Aloe Vera Farmers',
+  'Categories Section category2 text' => 'Buy Aloe Vera Leaves',
+  'Categories Section category3 text' => 'Buy Aloe Vera Extract',
+  'Categories Section category4 text' => 'Aloe Vera Benefits',
   'Explore button' => 'Explore',
 
   'aboutUs' => [
@@ -52,6 +52,35 @@ Together, we strive to achieve excellence in every project',
     'send_value' => ' Send',
   ],
 
+  'aloe_vera_farmers' => [
+    'heading' => 'Aloe Vera Farmers',
+    'paragraph' => '" Farmers, showcase your aloe vera effectively! Provide detailed quantities, competitive prices, and clear specifications to market your aloe vera smartly and attract the best buyers."',
+    'not_allowed' => [
+      'title' => 'Hello, Farmer',
+      'text' => 'Log in to your account to access our services or create a new account.'
+    ],
+  ],
+  'farmer_form' =>
+  [
+    'heading' => 'Fill the Platform',
+    'product_title' => 'Product Title',
+    'product_title_placeholder' => 'Enter Product Title',
+    'cactus_type' => 'Cactus Type',
+    'select_type' => 'Select Type',
+    'type1' => 'medicinal',
+    'type2' => 'industrial',
+    'type3' => 'ornamental',
+    'available_quantity' => 'Available Quantity',
+    'available_quantity_placeholder' => 'Enter Quantity',
+    'weight' => 'Weight or number of cactus units',
+    'price' => 'Price',
+    'price_per' => 'Price per kilogram or unit',
+    'price_placeholder' => 'Enter Price',
+    'additional_details' => 'Additional Details (Optional)',
+    'additional_details_placeholder' => 'Enter Additional Details',
+    'upload_image' => 'Upload Images',
+    'submit' => 'Submit',
+  ],
   // Authentication
   'login' => 'Login',
   'register' => 'Register',

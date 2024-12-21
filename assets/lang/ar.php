@@ -57,6 +57,27 @@ return [
       'text' => 'سجل دخولك إلى حسابك للوصول إلى خدماتنا أو أنشئ حساباً جديداً.'
     ],
   ],
+  'farmer_form' =>
+  [
+    'heading' => ' املأ النموذج',
+    'product_title' => 'عنوان المنتج',
+    'product_title_placeholder' => 'أدخل عنوان المنتج',
+    'cactus_type' => 'نوع الصبار',
+    'select_type' => 'اختر النوع',
+    'type1' => 'طبي',
+    'type2' => 'صناعي',
+    'type3' => 'زينة',
+    'available_quantity' => 'الكمية المتاحة',
+    'available_quantity_placeholder' => 'أدخل الكمية',
+    'weight' => 'الوزن أو عدد وحدات الصبار',
+    'price' => 'Price',
+    'price_per' => 'السعر لكل كيلوغرام أو وحدة',
+    'price_placeholder' => 'أدخل السعر',
+    'additional_details' => 'تفاصيل إضافية (اختياري)',
+    'additional_details_placeholder' => 'أدخل التفاصيل الإضافية',
+    'upload_image' => 'تحميل الصور',
+    'submit' => 'إرسال',
+  ],
   // تسجيل الدخول والتسجيل
   'login' => 'تسجيل الدخول',
   'register' => 'إنشاء حساب',
