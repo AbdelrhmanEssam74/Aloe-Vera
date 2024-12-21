@@ -55,6 +55,17 @@ class LoginController
       app()->session->set('email', $userData['email']);
       app()->session->set('login', true);
       app()->session->set('user_id', $userData['user_id']);
+      if(request('remember_me')){
+          // update user remember me in database
+          User::update('user_id', $userData['user_id'] , ['remember_me' => 1]);
+          // set user_id in cookies and encrypt it
+          $cookieName = 'ui';
+          $userId = $userData['user_id'];
+          $hash = hash_hmac('sha256', $userId, 'your_secret_key'); // Secure hash
+          $expiration = strtotime('+2 month');
+          setcookie($cookieName, $hash, $expiration, "/", "", true, true);
+
+      }
       // return RedirectToView("user/profile/" . $userData['user_id']);
       return RedirectToView("/");
     } else {

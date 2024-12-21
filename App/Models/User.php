@@ -5,12 +5,18 @@ namespace App\Models;
 
 class User extends Model
 {
+    private $id;
   private $user_id;
   private $full_name;
   private $username;
   private $email;
   private $password;
-  private $active;
+    private $active;
+    private $address;
+    private $role;
+    private $profile_img;
+    private $remember_me;
+    private $phone_number;
   private $created_at;
   private $authentication_code;
   private $auth_code_created_at;

@@ -60,7 +60,7 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                 <?php endif; ?>
               </div>
               <div class="mb-3 form-check">
-                <input type="checkbox" name="remember_me" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" name="remember_me" value="1" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1"><?= $translation['login']['remember'] ?></label>
               </div>
             <!-- Submit Button -->

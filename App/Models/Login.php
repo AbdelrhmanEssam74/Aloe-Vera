@@ -19,6 +19,8 @@ class Login extends Model
     {
         session_unset();
         session_destroy();
+        setcookie('ui', '', time() - 3600, "/");
+        unset($_COOKIE['ui']);
         RedirectToView('/login');
 
     }

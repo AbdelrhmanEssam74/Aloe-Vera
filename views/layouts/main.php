@@ -1,5 +1,25 @@
 <!doctype html>
 <?php
+// check if user id is already in cookies
+use App\Models\User;
+
+if(!empty($_COOKIE['ui'])){
+
+    $userId = $_COOKIE['ui'];
+    $users = app()->db->row("SELECT user_id FROM users Where remember_me =? " , ['1']);
+    foreach ($users as $user){
+        $hash = hash_hmac('sha256', $user->user_id, 'your_secret_key'); // Secure hash
+        if ($userId === $hash){
+            $userData = User::getUserData('user_id', $user->user_id);
+            app()->session->set('email', $userData['email']);
+            app()->session->set('login', true);
+            app()->session->set('user_id', $userData['user_id']);
+            break;
+        }
+    }
+}
+?>
+<?php
 $translation = app()->languages->get(getLanguage());
 $langCode = getLanguage();
 ?>
