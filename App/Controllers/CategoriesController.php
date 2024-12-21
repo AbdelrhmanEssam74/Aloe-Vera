@@ -56,26 +56,23 @@ class CategoriesController
 
   public function buy_aloe_vera(): null
   {
-    if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar"):
-      return View::makeView('ar.categories.buy_aloe_vera_leaves');
-    else:
-      return View::makeView('categories.buy_aloe_vera_leaves');
-    endif;
+    $data = array(
+      'translation' => app()->languages->get(getLanguage()),
+    );
+    return View::makeView('categories.buy_aloe_vera_leaves', $data);
   }
   public function buy_aloe_vera_extract(): null
   {
-    if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar"):
-      return View::makeView('ar.categories.buy_aloe_vera_extract');
-    else:
-      return View::makeView('categories.buy_aloe_vera_extract');
-    endif;
+    $data = array(
+      'translation' => app()->languages->get(getLanguage()),
+    );
+    return View::makeView('categories.buy_aloe_vera_extract', $data);
   }
   public function aloe_vera_benefits(): null
   {
-    if (isset($_COOKIE['lng']) and $_COOKIE['lng'] === "ar"):
-      return View::makeView('ar.categories.aloe_vera_benefits');
-    else:
-      return View::makeView('categories.aloe_vera_benefits');
-    endif;
+    $data = array(
+      'translation' => app()->languages->get(getLanguage()),
+    );
+    return View::makeView('categories.aloe_vera_benefits', $data);
   }
 }

@@ -1029,7 +1029,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 /*End Profile */
 /*Start Categories*/
 .category-hero {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .category-hero .category-heading {
@@ -1095,4 +1095,30 @@ textarea {
 }
 .product-info {
   margin-top: 15px;
+}
+
+.benefits-hero-section {
+  background: linear-gradient(
+      to right,
+      rgba(34, 193, 195, 0.5),
+      rgba(253, 187, 45, 0.5)
+    ),
+    url("/assets//images/aloe-hero.webp");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 0;
+  margin-top: 48px;
+}
+
+.benefits-section img {
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-section .rounded-card {
+  border: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }

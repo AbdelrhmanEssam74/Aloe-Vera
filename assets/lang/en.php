@@ -81,6 +81,42 @@ Together, we strive to achieve excellence in every project',
     'upload_image' => 'Upload Images',
     'submit' => 'Submit',
   ],
+  'buy_extract' => [
+    'heading' => 'Buy Aloe Vera Extract',
+    'paragraphs' => '"Explore our premium aloe vera extract, perfect for both business and personal use. Browse and select the right quantity to suit your needs, and enjoy the natural benefits of this high-quality product for skincare, wellness, and more."',
+    'explore' => 'Explore Products',
+    'products_section' => [
+      'title' => 'Our Products',
+      'quantity' => 'Quantity',
+      'add_to_cart' => 'Add to Cart',
+    ]
+  ],
+  'benefit_section' => [
+    'title' => 'Discover the Wonders of Aloe Vera',
+    'lead' => 'Learn about its incredible benefits for your skin, health, and more.',
+    'aloe-vera' => [
+      'title' => 'What is Aloe Vera?',
+      'text' => 'Aloe Vera is a succulent plant species known for its medicinal properties. It\'s been used for centuries in traditional medicine, skincare, and wellness products. Its gel-like substance contains vitamins, enzymes, and minerals that promote healing and hydration.',
+    ],
+    'benefits' => [
+      'title' => 'Benefits of Aloe Vera',
+      'benefit1' => [
+        'title' => 'Skincare',
+        'text' => 'Aloe Vera is a natural moisturizer, soothing dry skin and reducing acne or irritation.',
+      ],
+      'benefit2' => [
+        'title' => 'Supports Digestion',
+        'text' => 'Aloe Vera juice can help improve digestion and reduce bloating or constipation.',
+      ],
+      'benefit3' => [
+        'title' => 'Healing Properties',
+        'text' => 'The plant\'s gel is known for its wound-healing and anti-inflammatory properties.',
+      ],
+    ],
+    'gallery' => [
+      'title' => 'Aloe Vera in Action',
+    ],
+  ],
   // Authentication
   'login' => [
     'title' => 'Welcome back',

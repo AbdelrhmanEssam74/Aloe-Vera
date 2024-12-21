@@ -1,47 +1,79 @@
-<div class="container p-5 overflow-hidden" style="margin-top: 100px">
-  <div class="display-4 text-center mb-4">
-    Benefits Of Aloe Vera
-  </div>
-  <div class="row flex-lg-row-reverse g-0 align-items-center">
-    <div class="col-lg-6">
-      <div class="lc-block">
-        <img class="w-100" src="/assets/images/benefits.jpg" alt="Aloe Vera Plant" loading="lazy">
+  <!-- Hero Section -->
+  <section class="benefits-hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold"><?= $translation['benefit_section']['title'] ?></h1>
+      <p class="lead"><?= $translation['benefit_section']['lead'] ?></p>
+    </div>
+  </section>
+
+  <!-- About Aloe Vera Section -->
+  <div class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="fw-bold mt-3 mb-4 text-success">
+          <?= $translation['benefit_section']['aloe-vera']['title'] ?>
+          <h2>
+            <p> <?= $translation['benefit_section']['aloe-vera']['text'] ?></p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="/assets/images/aloe-about.webp" alt="Aloe Vera Plant" class="img-fluid rounded-card">
       </div>
     </div>
-    <div class="col-lg-6">
-      <div class="lc-block p-3">
-        <div editable="rich">
-          <h1>Benefits of Aloe Vera</h1>
-          <p class="lead">Aloe Vera, known for its numerous health benefits, promotes skin and hair health, provides deep hydration, and helps soothe inflammation. It is an ideal choice for self-care due to its calming and moisturizing properties.</p>
-          <ul >
-            <li><i class="bi bi-check-circle"></i> Calms irritated skin</li>
-            <li><i class="bi bi-check-circle"></i> Deeply moisturizes the skin</li>
-            <li><i class="bi bi-check-circle"></i> Supports hair growth and reduces hair loss</li>
-            <li><i class="bi bi-check-circle"></i> Antibacterial properties</li>
-          </ul>
+  </div>
+
+  <!-- Benefits Section -->
+  <div class="benefits-section py-5 bg-light mt-4">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4 text-success"> <?= $translation['benefit_section']['benefits']['title'] ?></h2>
+      <div class="row g-4">
+        <!-- Benefit 1 -->
+        <div class="col-md-4">
+          <div class="card rounded-card">
+            <img src="/assets/images/benefit-skin.webp" class="card-img-top" alt="Skincare">
+            <div class="card-body">
+              <h5 class="card-title">
+                <?= $translation['benefit_section']['benefits']['benefit1']['title'] ?>
+              </h5>
+              <p class="card-text"> <?= $translation['benefit_section']['benefits']['benefit1']['text'] ?></p>
+            </div>
+          </div>
+        </div>
+        <!-- Benefit 2 -->
+        <div class="col-md-4">
+          <div class="card rounded-card">
+            <img src="/assets/images/benefit-digestion.jpg" class="card-img-top" alt="Digestion">
+            <div class="card-body">
+              <h5 class="card-title"> <?= $translation['benefit_section']['benefits']['benefit2']['title'] ?></h5>
+              <p class="card-text"> <?= $translation['benefit_section']['benefits']['benefit2']['text'] ?></p>
+            </div>
+          </div>
+        </div>
+        <!-- Benefit 3 -->
+        <div class="col-md-4">
+          <div class="card rounded-card">
+            <img src="/assets/images/benefit-healing.jpeg" class="card-img-top" alt="Healing">
+            <div class="card-body">
+              <h5 class="card-title"> <?= $translation['benefit_section']['benefits']['benefit3']['title'] ?></h5>
+              <p class="card-text"> <?= $translation['benefit_section']['benefits']['benefit3']['text'] ?></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row g-0 align-items-center mt-5">
-    <div class="col-lg-6">
-      <div class="lc-block">
-        <img class="w-100" src="/assets/images/skin.jpg" alt="Aloe Vera Benefits" loading="lazy">
+  <!-- Gallery Section -->
+  <div class="container my-5">
+    <h2 class="text-center fw-bold mb-4 text-success"> <?= $translation['benefit_section']['gallery']['title'] ?></h2>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <img src="/assets/images/gallery1.jpeg" alt="Aloe Vera Product" class="img-fluid rounded">
       </div>
-    </div>
-    <div class="col-lg-6">
-      <div class="lc-block p-3">
-        <div editable="rich">
-          <h1>Advantages of Aloe Vera for Skincare</h1>
-          <p class="lead">Aloe Vera is a key ingredient in skincare products due to its ability to deeply moisturize and nourish the skin, leaving it soft and healthy.</p>
-          <ul class="list-unstyled">
-            <li><i class="bi bi-check-circle"></i> Moisturizes the skin</li>
-            <li><i class="bi bi-check-circle"></i> Soothes inflammation</li>
-            <li><i class="bi bi-check-circle"></i> Supports hair health</li>
-          </ul>
-        </div>
+      <div class="col-md-4">
+        <img src="/assets/images/benefit-skin.webp" alt="Aloe Vera Juice" class="img-fluid rounded">
+      </div>
+      <div class="col-md-4">
+        <img src="/assets/images/aloe-hero.webp" alt="Aloe Vera Plant" class="img-fluid rounded">
       </div>
     </div>
   </div>
-</div>
