@@ -109,6 +109,12 @@ if (!function_exists("config_path")) {
     return base_path() . 'config/';
   }
 }
+if (!function_exists("lang_path")) {
+    function lang_path(): string
+    {
+        return base_path() . 'assets/lang/';
+    }
+}
 if (!function_exists("config")) {
   function config($key = null, $default = null)
   {
@@ -140,6 +146,19 @@ if (!function_exists('GenerateAuthCode')) {
   {
     return rand(100000, 999999); // Generate a 6-digit random code
   };
+}
+if(!function_exists('getLanguage')){
+    function getLanguage() {
+        if (!empty($_GET['lang'])) {
+            $lang = $_GET['lang'];
+            app()->session->set('lang' , $lang);
+        } elseif (app()->session->exists('lang')) {
+            $lang = app()->session->get('lang');
+        } else {
+            $lang = 'en'; // Default language
+        }
+        return $lang;
+    }
 }
 if (!function_exists("getClientIp")) {
   // Function to get the client IP address
