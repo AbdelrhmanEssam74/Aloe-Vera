@@ -1,3 +1,13 @@
+  <style>
+    .same-size {
+      width: 100%;
+      /* Adjust to parent container */
+      height: 350px;
+      /* Fixed height */
+      object-fit: cover;
+      /* Ensures image aspect ratio is maintained */
+    }
+  </style>
   <!-- Hero Section -->
   <section class="benefits-hero-section text-center">
     <div class="container">
@@ -65,15 +75,34 @@
   <!-- Gallery Section -->
   <div class="container my-5">
     <h2 class="text-center fw-bold mb-4 text-success"> <?= $translation['benefit_section']['gallery']['title'] ?></h2>
-    <div class="row g-3">
+    <p class="text-center"><?= $translation['benefit_section']['gallery']['description'] ?></p>
+    <div class="row g-3 mt-4">
       <div class="col-md-4">
-        <img src="/assets/images/gallery1.jpeg" alt="Aloe Vera Product" class="img-fluid rounded">
+        <div class="card rounded-card shadow">
+          <img src="/assets/images/gallery1.jpg" class="card-img-top same-size" alt="Aloe Vera Product">
+          <div class="card-body">
+            <h5 class="card-title"><?= $translation['benefit_section']['gallery']['app1'] ?></h5>
+            <p class="card-text"> <?= $translation['benefit_section']['gallery']['app1_desc'] ?></p>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
-        <img src="/assets/images/benefit-skin.webp" alt="Aloe Vera Juice" class="img-fluid rounded">
+        <div class="card rounded-card shadow">
+          <img src="/assets/images/gallery2.jpg" class="card-img-top same-size" alt="Aloe Vera Product">
+          <div class="card-body">
+            <h5 class="card-title"><?= $translation['benefit_section']['gallery']['app2'] ?></h5>
+            <p class="card-text"> <?= $translation['benefit_section']['gallery']['app2_desc'] ?></p>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
-        <img src="/assets/images/aloe-hero.webp" alt="Aloe Vera Plant" class="img-fluid rounded">
+        <div class="card rounded-card shadow">
+          <img src="/assets/images/gallery3.jpg" class="card-img-top same-size" alt="Aloe Vera Product">
+          <div class="card-body">
+            <h5 class="card-title"><?= $translation['benefit_section']['gallery']['app3'] ?></h5>
+            <p class="card-text"> <?= $translation['benefit_section']['gallery']['app3_desc'] ?></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

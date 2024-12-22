@@ -1,4 +1,4 @@
-<div class="container about-section py-5" >
+<div class="container about-section py-5">
   <!-- About Us Heading -->
   <div class="row">
     <div class="col-md-12 text-center">
@@ -32,7 +32,13 @@
       </div>
     </div>
   </div>
-
+  <!-- Our Advantage Section -->
+  <div class="container my-5">
+    <h2 class="text-center fw-bold mb-4 text-success"><?= $translation['aboutUs']['advantage_section']['title'] ?></h2>
+    <p class="text-center">
+      <?= $translation['aboutUs']['advantage_section']['description'] ?>
+    </p>
+  </div>
   <!-- Team Section -->
   <div class="container team-member text-center py-5">
     <h2 class="display-4 mb-3 fw-bold text-success">

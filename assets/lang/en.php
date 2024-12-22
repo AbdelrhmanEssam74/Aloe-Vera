@@ -22,6 +22,8 @@ return [
   'Categories Section category2 text' => 'Buy Aloe Vera Leaves',
   'Categories Section category3 text' => 'Buy Aloe Vera Extract',
   'Categories Section category4 text' => 'Aloe Vera Benefits',
+  'Categories Section category5 text' => 'Aloe Vera Extract Applications',
+
   'Explore button' => 'Explore',
 
   'aboutUs' => [
@@ -40,6 +42,12 @@ Together, we strive to achieve excellence in every project',
     'member2' => 'Naheyl Salem Abozaid',
     'member3' => 'Manar Abo-elmaged Yassin',
     'member4' => 'Eman Ashraf Mohamed',
+    'advantage_section' => [
+      'title' => 'Why Choose Our Aloe Vera Products?',
+      'description' => '  We pride ourselves on using only natural preservatives in our aloe vera products, ensuring a safe and eco-friendly experience.
+            Additionally, as a local brand, we are able to offer our products at a lower cost, providing you with high-quality items at competitive prices.
+            This combination of quality and affordability gives us a significant edge in the market.'
+    ]
   ],
 
   'contactUs' => [
@@ -125,7 +133,14 @@ Together, we strive to achieve excellence in every project',
       ],
     ],
     'gallery' => [
-      'title' => 'Aloe Vera in Action',
+      'title' => 'Applications Based On Aloe Vera Extract',
+      'description' => 'Aloe vera extract is a versatile ingredient used across various industries. In the pharmaceutical field, it is valued for its burn treatment properties and as a nutritional supplement. In cosmetics, aloe vera is commonly included in products for its moisturizing, nourishing, and skin-soothing benefits. Additionally, aloe vera is popular as a beverage, particularly in the form of juice, known for its digestive and hydrating properties.',
+      'app1' => 'Pharmaceutical',
+      'app1_desc' => 'Aloe vera extract is used in the pharmaceutical industry for burn treatment, soothing and healing skin irritations. It is also found in nutritional supplements, offering vitamins, minerals, and antioxidants that support immune health and digestion.',
+      'app2' => 'Cosmetics',
+      'app2_desc' => 'Aloe vera is commonly used in cosmetics for its moisturizing, nourishing, and soothing properties. It helps hydrate skin, reduce inflammation, and treat conditions like acne, eczema, and sunburn.',
+      'app3' => 'Beverages',
+      'app3_desc' => 'Aloe vera extract is also consumed as a beverage, typically in the form of juice. It is valued for its digestive benefits, detoxifying properties, and hydration support, often marketed as a natural energy drink for overall well-being.'
     ],
   ],
   // Authentication

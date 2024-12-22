@@ -75,4 +75,11 @@ class CategoriesController
     );
     return View::makeView('categories.aloe_vera_benefits', $data);
   }
+  public function aloe_vera_applications(): null
+  {
+    $data = array(
+      'translation' => app()->languages->get(getLanguage()),
+    );
+    return View::makeView('categories.aloe_vera_benefits', $data);
+  }
 }
