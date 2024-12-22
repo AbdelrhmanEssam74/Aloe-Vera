@@ -110,10 +110,10 @@ if (!function_exists("config_path")) {
   }
 }
 if (!function_exists("lang_path")) {
-    function lang_path(): string
-    {
-        return base_path() . 'assets/lang/';
-    }
+  function lang_path(): string
+  {
+    return base_path() . 'assets/lang/';
+  }
 }
 if (!function_exists("config")) {
   function config($key = null, $default = null)
@@ -147,19 +147,32 @@ if (!function_exists('GenerateAuthCode')) {
     return rand(100000, 999999); // Generate a 6-digit random code
   };
 }
-if(!function_exists('getLanguage')){
-    function getLanguage() {
-        if (!empty($_GET['lang'])) {
-            $lang = $_GET['lang'];
-            app()->session->set('lang' , $lang);
-        } elseif (app()->session->exists('lang')) {
-            $lang = app()->session->get('lang');
-        } else {
-            $lang = 'en'; // Default language
-        }
-        return $lang;
+if (!function_exists('getLanguage')) {
+  function getLanguage()
+  {
+    // Check if language is passed in the URL
+    if (!empty($_GET['lang'])) {
+      $lang = $_GET['lang'];
+      // Store the language in the session
+      app()->session->set('lang', $lang);
     }
+    // Check if the language is set in the session
+    elseif (app()->session->exists('lang')) {
+      $lang = app()->session->get('lang');
+    }
+    // Check if the language is stored in a cookie (to persist across sessions)
+    elseif (isset($_COOKIE['lang'])) {
+      $lang = $_COOKIE['lang'];
+    } else {
+      // Default to English if no language is found
+      $lang = 'en';
+    }
+    // Store the language in a cookie to persist for 1 year (365 days)
+    setcookie('lang', $lang, time() + (365 * 24 * 60 * 60), "/");  // 365 days
+    return $lang;
+  }
 }
+
 if (!function_exists("getClientIp")) {
   // Function to get the client IP address
   function getClientIp()

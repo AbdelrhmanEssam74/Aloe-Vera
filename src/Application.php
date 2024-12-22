@@ -47,11 +47,7 @@ class Application
         continue;
       }
       $fileName = explode(".", $file)[0];
-      // echo $fileName;
       $lang[$fileName] = require_once lang_path() . $file;
-      // echo "<pre>";
-      // print_r((object)$lang);
-      // echo "</pre>";
     }
     return $lang;
   }
