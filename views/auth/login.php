@@ -48,6 +48,7 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
               <!-- Password Field -->
               <div class="form-group mb-4" dir="<?php echo $langCode === 'ar' ? 'rtl' : 'ltr'; ?>">
                 <label for="password" class="form-label"><?= $translation['login']['password'] ?></label>
+                  <div class="input-group">
                 <input
                   type="password"
                   class="form-control <?= app()->session->hasFlash('password') ? 'is-invalid' : ''; ?>"
@@ -59,6 +60,7 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
                     <?= app()->session->getFlash('password')[0]; ?>
                   </div>
                 <?php endif; ?>
+                  </div>
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" name="remember_me" value="1" class="form-check-input" id="exampleCheck1">
