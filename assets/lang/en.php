@@ -81,6 +81,17 @@ Together, we strive to achieve excellence in every project',
     'upload_image' => 'Upload Images',
     'submit' => 'Submit',
   ],
+  'buy_leaves' => [
+    'heading' => 'Buy Aloe Vera Leaves',
+    'paragraph' => '"Discover our premium-quality aloe vera extract, carefully crafted to meet your needs. Whether for business or personal use, explore a seamless shopping experience with flexible quantity options to suit your requirements."',
+    'filters' => [
+      'filter1' => 'All',
+      'filter2' => 'Medicinal',
+      'filter3' => 'Ornamental',
+      'filter4' => 'Industrial',
+    ],
+    'farmers_products' => 'Farmers Products',
+  ],
   'buy_extract' => [
     'heading' => 'Buy Aloe Vera Extract',
     'paragraphs' => '"Explore our premium aloe vera extract, perfect for both business and personal use. Browse and select the right quantity to suit your needs, and enjoy the natural benefits of this high-quality product for skincare, wellness, and more."',
