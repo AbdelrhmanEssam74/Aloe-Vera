@@ -433,23 +433,24 @@ $(document).ready(function () {
     // Append the colDiv to a parent container (e.g., a row or a specific div)
     $("#product-parent-container").append(colDiv);
   }
-  // // Add eye icon after each password input
-  // $('input[type="password"]').each(function () {
-  //   const eyeIcon = $('<span class="toggle-password show-pass">👁️</span>');
-  //   $(this).after(eyeIcon);
-  // });
+// Add eye icon after each password input
+  $('.form-group input[type="password"]').each(function () {
+    const eyeIcon = $('<span class="input-group-text toggle-password"><i class="bi bi-eye-fill"></i></span>');
+    $(this).after(eyeIcon);
+  });
 
-  // // Toggle password visibility on eye icon click
-  // $(document).on("click", ".toggle-password", function () {
-  //   const input = $(this).prev('input[type="password"], input[type="text"]');
-  //   const inputType = input.attr("type");
+// Toggle password visibility on eye icon click
+  $(document).on("click", ".toggle-password", function () {
+    const input = $(this).prev('input[type="password"], input[type="text"]');
+    const inputType = input.attr("type");
 
-  //   if (inputType === "password") {
-  //     input.attr("type", "text"); // Show password
-  //     $(this).text("🙈"); // Change icon to hide
-  //   } else {
-  //     input.attr("type", "password"); // Hide password
-  //     $(this).text("👁️"); // Change icon to show
-  //   }
-  // });
+    if (inputType === "password") {
+      input.attr("type", "text"); // Show password
+      $(this).find('i').removeClass('bi-eye-fill').addClass('bi-eye-slash-fill'); // Change to 'eye-slash' icon
+    } else {
+      input.attr("type", "password"); // Hide password
+      $(this).find('i').removeClass('bi-eye-slash-fill').addClass('bi-eye-fill'); // Change to 'eye' icon
+    }
+  });
+
 });

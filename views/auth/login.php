@@ -1,4 +1,5 @@
 <?php
+$langCode = getLanguage();
 // check if the user logged in and if so redirect to profile page
 if (!empty(app()->session->get('login')) && app()->session->get('login') === true) {
   RedirectToView('/');
@@ -45,7 +46,7 @@ if (!empty(app()->session->get('login')) && app()->session->get('login') === tru
               </div>
 
               <!-- Password Field -->
-              <div class="form-group mb-4">
+              <div class="form-group mb-4" dir="<?php echo $langCode === 'ar' ? 'rtl' : 'ltr'; ?>">
                 <label for="password" class="form-label"><?= $translation['login']['password'] ?></label>
                 <input
                   type="password"

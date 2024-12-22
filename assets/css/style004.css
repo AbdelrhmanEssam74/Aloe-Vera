@@ -578,7 +578,9 @@ body[dir="ltr"] {
   font-weight: bold;
   font-size: 1.5em;
 }
-
+.form-group{
+  position: relative;
+}
 .form-row {
   padding: 20px 0px 0px 0px;
 }
@@ -1071,13 +1073,6 @@ textarea {
 }
 
 /*End Categories*/
-.show-pass {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  font-size: 25px;
-  cursor: pointer;
-}
 .product-card {
   border: 1px solid #ddd;
   border-radius: 8px;
