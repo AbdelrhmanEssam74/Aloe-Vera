@@ -40,7 +40,7 @@
       <?php
       if (app()->session->get('login') and app()->session->get('login') === true):
       ?>
-        <div class="dropdown">
+        <div class="dropdown" dir="<?php echo $langCode === 'ar' ? 'rtl' : 'ltr'; ?>">
           <img src="/assets/images/default-avatar.png" width="30" class="profile-pic-nav rounded-circle">
           <div class="dropdown-menu">
             <!--            <a href="/user/profile/--><?php //= app()->session->get('user_id') 
@@ -48,8 +48,8 @@
             <!--              Profile</a>-->
             <!--            <a href="/user/settings"><i class="fa-solid fa-gear"></i> Settings</a>-->
             <hr>
-            <a href="/logout" class="text-danger"> <i class="fa-solid fa-arrow-right-from-bracket"></i>
-              Logout</a>
+            <a href="/logout" class="text-danger"> <i class="bi  <?= $langCode === 'ar' ? 'bi-box-arrow-left' : 'bi-box-arrow-right' ?>"></i>
+              <?= $translation['login']['logout'] ?></a>
           </div>
         </div>
       <?php
@@ -61,15 +61,14 @@
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div class="nav-links-mobile">
-      <a href="/">Home</a>
-      <a href="/aboutUs">About</a>
-      <a href="/#categories">Categories</a>
-      <a href="/contactUs">Contact</a>
+      <a href="/"><?= $translation['HomePage Link'] ?></a>
+      <a href="/#categories"><?= $translation['CategoriesPage Link'] ?></a>
+      <a href="/aboutUs"><?= $translation['AboutUsPage Link'] ?></a>
+      <a href="/contactUs"><?= $translation['ContactPage Link'] ?></a>
     </div>
   </div>
 </div>
@@ -77,7 +76,7 @@
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Your Cart</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close text-reset text-end" style="flex:auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div>

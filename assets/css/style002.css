@@ -155,6 +155,10 @@ body[dir="ltr"] {
   border-radius: 5px;
   overflow: hidden;
 }
+.dropdown[dir="rtl"] .dropdown-menu {
+  right: auto;
+  left: 0;
+}
 
 .dropdown-menu a {
   display: block;

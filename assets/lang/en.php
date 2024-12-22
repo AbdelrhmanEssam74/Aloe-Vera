@@ -138,6 +138,7 @@ Together, we strive to achieve excellence in every project',
     'remember' => 'Remember me',
     'login' => 'Login',
     'create_new_user' => 'Create a new account',
+    'logout' => 'Logout',
   ],
   'register' => [
     'title' => 'Create an Account and Join Us',

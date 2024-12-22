@@ -1,7 +1,7 @@
 <?php
 // check if the user logged in and if so redirect to profile page
 if (!empty(app()->session->get('login')) && app()->session->get('login') === true) {
-  RedirectToView('user/profile/' . app()->session->get('user_id'));
+  RedirectToView('/');
 }
 ?>
 <section class="p-3 p-md-4 p-xl-5 login-section">
