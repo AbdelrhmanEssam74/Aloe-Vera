@@ -1,3 +1,4 @@
+<?php include view_path() . 'partials/navbar.php'; ?>
 <div class="container">
   <div class="inner-container">
     <div class="tile2">

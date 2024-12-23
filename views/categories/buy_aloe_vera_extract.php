@@ -1,3 +1,4 @@
+<?php include view_path() . 'partials/navbar.php'; ?>
 <section class="category-hero py-lg-16 pt-8 pb-8 bg-light" style="margin-top: 7rem;">
   <div class="container">
     <div class="row align-items-center">

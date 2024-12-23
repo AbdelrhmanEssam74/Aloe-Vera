@@ -1,3 +1,4 @@
+<?php include view_path() . 'partials/navbar.php'; ?>
 <!-- Hero Section -->
 <section class="benefits-hero-section text-center">
   <div class="container">

@@ -1,3 +1,4 @@
+<?php include view_path() . 'partials/navbar.php'; ?>
 <div class="container about-section py-5">
   <!-- About Us Heading -->
   <div class="row">

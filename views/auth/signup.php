@@ -1,4 +1,4 @@
-<section class="p-3 p-md-4 p-xl-5 login-section">
+<section class=" login-section">
   <img src="/assets/images/item3.png" class="login-section-img" alt="">
   <div class="container position-relative">
     <img src="/assets/images/leaves1.png" class="card-login-img" alt="">

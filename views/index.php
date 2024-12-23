@@ -4,6 +4,7 @@ $langCode = getLanguage();
 $dir = ($langCode === 'ar') ? 'rtl' : 'ltr';
 ?>
 <!--StartHero Section-->
+<?php include view_path() . 'partials/navbar.php'; ?>
 <div class="container-fluid  main-section " style="background-image: url('/assets/images/background.jpg');">
   <div class="p-5 mb-4 lc-block col-xxl-7 col-lg-8 col-12 container">
     <div class="lc-block ">

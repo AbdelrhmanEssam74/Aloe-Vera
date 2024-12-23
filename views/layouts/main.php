@@ -29,7 +29,7 @@ $langCode = getLanguage();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= env('APP_NAME') ?></title>
-  <link rel="stylesheet" href="/assets/css/style004.css">
+  <link rel="stylesheet" href="/assets/css/style005.css">
   <link rel="stylesheet" href="/assets/css/verification.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,6 @@ $langCode = getLanguage();
 
 <body id="body">
   <?php include view_path() . 'partials/Back_to_top_button.php' ?>
-  <?php include view_path() . 'partials/navbar.php'; ?>
   <div>
     {{content}}
   </div>
