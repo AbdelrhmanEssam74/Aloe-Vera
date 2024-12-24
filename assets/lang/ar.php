@@ -141,7 +141,7 @@ return [
 
   // تسجيل الدخول والتسجيل
   'login' => [
-    'title' => 'مرحبًا بعودتك',
+    'title' => 'مرحبًا بعودتك الي محمية الصبار',
     'email' => 'البريد الإلكتروني',
     'email_placeholder' => 'أدخل البريد الإلكتروني',
     'password' => 'كلمة المرور',
@@ -161,7 +161,7 @@ return [
     'email_placeholder' => 'أدخل البريد الإلكتروني',
     'phone_number' => 'رقم الهاتف',
     'phone_number_placeholder' => 'أدخل رقم الهاتف',
-    'address' => 'العنوان',
+    'address' => 'العنوان (اختر موقعك على الخريطة أو أدخل عنوانك)',
     'address_placeholder' => 'أدخل العنوان',
     'password' => 'كلمة المرور',
     'password_placeholder' => 'أدخل كلمة المرور',
@@ -170,8 +170,8 @@ return [
     'register' => 'تسجيل',
     'have_account' => 'لديك حساب؟',
   ],
+  // Validation
   'validation' => [
-    'require' => 'مطلوب ولا يمكن أن يكون فارغًا'
+    'required' => ' هذا الحقل مطلوب ولا يمكن أن يكون فارغًا',
   ],
-
 ];

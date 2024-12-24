@@ -145,7 +145,7 @@ Together, we strive to achieve excellence in every project',
   ],
   // Authentication
   'login' => [
-    'title' => 'Welcome back',
+    'title' => 'Welcome back to Aloe Vera',
     'email' => ' Email Address',
     'email_placeholder' => 'Enter Email Address',
     'password' => 'Password',
@@ -165,7 +165,7 @@ Together, we strive to achieve excellence in every project',
     'email_placeholder' => 'Enter Email Address',
     'phone_number' => 'Phone Number',
     'phone_number_placeholder' => 'Enter Phone Number',
-    'address' => 'Address',
+    'address' => 'Address <small>(Pick your location on the map or enter your address)</small>',
     'address_placeholder' => 'Enter Address',
     'password' => 'Password',
     'password_placeholder' => 'Enter Password',
@@ -173,5 +173,9 @@ Together, we strive to achieve excellence in every project',
     'confirm_password_placeholder' => 'Confirm Password',
     'register' => 'Register',
     'have_account' => 'Already have an account?',
+  ],
+  // Validation
+  'validation' => [
+    'required' => 'is required and cannot be empty',
   ],
 ];
