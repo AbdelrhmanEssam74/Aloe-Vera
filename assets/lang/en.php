@@ -1,5 +1,7 @@
 <?php
 return [
+  // models
+  'choose-language' => 'Choose Language',
   // Navbar
   'HomePage Link' => 'Home',
   'CategoriesPage Link' => 'Categories',
@@ -9,6 +11,9 @@ return [
   'Hero Title' => 'Aloe Vera',
   'Hero Paragraph' => 'Discover the power of sustainable aloe vera. From cultivation to global delivery, we bring you premium extracts.',
   'Hero Main Button' => 'Shop Now',
+  'card1-text' => 'Plants are essential for life, providing oxygen and beauty to our environment.',
+  'card3-text' => 'Aloe vera is a versatile plant known for its soothing and healing properties.',
+  'card5-text' => 'Indoor plants can improve air quality and add a touch of nature to your space.',
 
   // Call-to-Action (CTA) Section
   'CTA Section Title' => 'Aloe Vera for Your Skin, Hair, and Health',
