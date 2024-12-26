@@ -87,6 +87,9 @@ return [
     'additional_details_placeholder' => 'أدخل التفاصيل الإضافية',
     'upload_image' => 'تحميل الصور',
     'submit' => 'إرسال',
+    'success' => 'تم تحميل المنتج بنجاح',
+    'delete' => ' تم حذف المنتج بنجاح',
+    'update' => 'تم تحديث المنتج بنجاح',
   ],
   'buy_leaves' => [
     'heading' => 'اشترِ أوراق الصبار',
