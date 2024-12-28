@@ -75,7 +75,7 @@ Together, we strive to achieve excellence in every project',
   ],
   'farmer_form' =>
   [
-    'heading' => 'Fill the Platform',
+    'heading' => 'Fill The Platform',
     'product_title' => 'Product Title',
     'product_title_placeholder' => 'Enter Product Title',
     'cactus_type' => 'Cactus Type',
